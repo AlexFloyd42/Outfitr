@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OUTFITR — Complete outfits, built from live UK stock</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2224%22%20fill%3D%22%230E3A2C%22/%3E%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2253%22%20r%3D%2223%22%20fill%3D%22none%22%20stroke%3D%22%23F1EEE5%22%20stroke-width%3D%2210.5%22/%3E%20%20%3Ccircle%20cx%3D%2276%22%20cy%3D%2226%22%20r%3D%228.5%22%20fill%3D%22%23E8622C%22/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAADJklEQVR4nGNgQAO81rqevFY6y3ktdR7yWen85LPS+U8h/gkyi9dKZxmfhZYHAy7AbaknxmulvYcKFuLFvFbau3lsDEQxLbfUvktry+GOsNS5g+IIXjr4HNMR2rvgcU5vy+HYQsuDAZTgaGWBnbPO/wh3nf+q9jjTw1IGaGqnuuWTg3X+v0iC4AcJOv99XbE5QOcBAyVZTczeCIyx+RxmOQyfjMFqxk8GUiwUtNH7H1eV+3/l1tX/Hz688f/ju6dgDGKDxGIrc8FqQMGO7oBHiTr/BawxzWQgOj4Tgv+fvngMbikufPL80f9+CX7gYEd2wIow7OYyEGN5WHHa/xcv7hO0HIZBautzQ8HB/jgRYrmKHZkOsI0PxrD80tUz/xumdP6PKM0E48apXf8vXzuDoubl83v/reMC//MTMJ8Bn6SAjd7/k2ePwA398PbJ/+Zp3f+F7fQx1ILEWmf0gNXA1B8/cwhsBtkOiCjNRPFV28xegtHVMasfRU9YSQb5Dli6aTncoKvXz/0XsTcg6ABRe8P/12+eh+tbvGEp+Q64cfsS3KD2mX1EZ9f22YhQuHHrAnkOELDR+//29SO4QYk1BUQ7IKm2AK4PZAa+dMCAS4LfWvf/m1cIByTXFhLtgNT6Iri+1y8fgs0iKwquI8Vlz/zJRDugb/4UlLRDdhqYt2Yh3KDbdy//F3c0IWi5hJPp/zv3rsD1zVm9gHwHBOYnoWSpqUtnEXTAtKWzUPT45yaS7wB+a93/+47tQTFw+rLZ/yWdzTDUSrmY/5++Yg6K2t1HdhJ0MAMhBcbhXv+fPL6NYvC9+9f+T1ky8392S8X/nNZKcMjcf3ANRc3jx7f+G4S4U+4APiud/+4Z0WADia2MHj26+d8tPYqoBMtAbIME5Judh3YQtHznwe1E+RyKf5LcJPPKiv0/Y/ns/2cuHv///NkdMAaxQWnDMyuGaHNAmNdK+z6oSb6UFE1UxZbaixlATeMBdIA7rGOym96W81rp7ID3jEDdJFB3ia5dM3s1EZT+IcQR2rvo4XOMzikyAKUJUMIEdRqo1j230nnAa6m9BB7nSAAAvjcF0jR2BvwAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="theme-color" content="#0E3A2C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -86,7 +90,8 @@ header.hero{
   border-bottom:1px solid var(--line);
   overflow:hidden;position:relative;
 }
-.hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);padding:clamp(56px,8vh,96px) 0 clamp(48px,7vh,88px);align-items:center}
+.hero-in{padding:clamp(52px,7vh,84px) 0 clamp(40px,6vh,64px);text-align:center}
+.hero-copy{max-width:820px;margin:0 auto}
 .hero h1{
   font-size:clamp(44px,6.4vw,92px);font-weight:900;
   animation:rise .7s cubic-bezier(.2,.8,.2,1) both;
@@ -97,43 +102,44 @@ header.hero{
 }
 .hero h1 .camel{color:var(--camel)}
 .hero p.lede{
-  margin:26px 0 34px;font-size:clamp(16px,1.4vw,19px);max-width:52ch;color:#3b3f3a;
+  margin:26px auto 34px;font-size:clamp(16px,1.4vw,19px);max-width:56ch;color:#3b3f3a;
   animation:rise .7s .08s cubic-bezier(.2,.8,.2,1) both;
 }
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;animation:rise .7s .16s cubic-bezier(.2,.8,.2,1) both}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:rise .7s .16s cubic-bezier(.2,.8,.2,1) both}
+.btn-hero{font-size:17px;padding:18px 34px;letter-spacing:.04em}
 
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
-/* hero ticket */
-.ticket{
-  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-  box-shadow:0 30px 60px -30px rgba(20,23,20,.35), 0 2px 0 var(--chalk-2);
-  padding:22px;position:relative;transform:rotate(1.6deg);
-  animation:rise .8s .2s cubic-bezier(.2,.8,.2,1) both;
-}
-.ticket::before{
-  content:"LIVE FEED";position:absolute;top:-12px;left:22px;background:var(--stitch);color:#fff;
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;padding:4px 10px;border-radius:999px;font-weight:600;
-}
-.ticket-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px dashed var(--line);padding-bottom:12px;margin-bottom:14px}
-.ticket-head h3{font-size:18px;font-weight:800}
-.ticket-head .score{font-family:var(--mono);font-size:12px;color:var(--green);font-weight:600}
-.trow{display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid #F0EDE4}
-.trow:last-of-type{border-bottom:none}
-.swatch{width:44px;height:44px;border-radius:10px;flex:none;display:grid;place-items:center;border:1px solid rgba(0,0,0,.08)}
-.swatch svg{width:26px;height:26px}
-.trow .n{font-weight:600;font-size:14px;line-height:1.25}
-.trow .r{font-family:var(--mono);font-size:11px;color:#7a7d75;text-transform:uppercase;letter-spacing:.06em}
-.trow .p{margin-left:auto;font-family:var(--mono);font-weight:600;font-size:14px}
-.ticket-total{display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1.5px dashed var(--line);font-family:var(--mono);font-weight:600}
-.ticket-total .t{color:var(--green)}
-
-/* retailer marquee */
-.marquee{border-top:1px solid var(--line);background:var(--ink);color:var(--chalk);overflow:hidden;padding:16px 0}
-.marquee-track{display:flex;gap:56px;white-space:nowrap;animation:scroll 30s linear infinite;width:max-content}
-.marquee span{font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
-.marquee i{color:var(--camel);font-style:normal}
-@keyframes scroll{to{transform:translateX(-50%)}}
+/* ===== live rolling outfit feed ===== */
+.ofeed-section{background:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0 26px;overflow:hidden}
+.ofeed-label{display:flex;align-items:center;gap:9px;justify-content:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--camel-soft);margin-bottom:18px}
+.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--stitch);box-shadow:0 0 0 0 rgba(232,98,44,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,98,44,.55)}70%{box-shadow:0 0 0 9px rgba(232,98,44,0)}100%{box-shadow:0 0 0 0 rgba(232,98,44,0)}}
+.ofeed{overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(to right,transparent,#000 3%,#000 97%,transparent)}
+.ofeed-track{display:flex;gap:18px;width:max-content;animation:ofeedroll 70s linear infinite;will-change:transform}
+.ofeed.paused .ofeed-track{animation-play-state:paused}
+@keyframes ofeedroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ofcard{flex:0 0 300px;background:var(--chalk);color:var(--ink);border-radius:16px;overflow:hidden;box-shadow:0 20px 40px -26px rgba(0,0,0,.6)}
+.ofcard-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 16px 11px;border-bottom:1.5px dashed var(--line)}
+.ofcard-head b{font-size:15px;font-weight:800;text-transform:uppercase;font-variation-settings:'wdth' 108}
+.ofcard-head .ofscore{font-family:var(--mono);font-size:11px;color:var(--green);font-weight:600;margin-left:8px}
+.ofcard-head>div{display:flex;align-items:baseline;min-width:0}
+.ofcard-head .heart-btn{color:var(--stitch)}
+.ofitems{padding:4px 16px}
+.ofitem{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid #E8E4D7;text-decoration:none;color:inherit;transition:opacity .15s}
+.ofitem:last-child{border-bottom:none}
+.ofitem:hover{opacity:.62}
+.ofsw{width:38px;height:38px;border-radius:9px;flex:none;display:grid;place-items:center;border:1px solid rgba(0,0,0,.08)}
+.ofsw svg{width:22px;height:22px}
+.ofn{flex:1;min-width:0}
+.ofn b{font-size:13px;font-weight:600;line-height:1.2;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ofn .ofr{font-family:var(--mono);font-size:10px;color:#84867e;text-transform:uppercase;letter-spacing:.04em}
+.ofp{font-family:var(--mono);font-size:13px;font-weight:600;white-space:nowrap}
+.ofarrow{font-size:12px;color:#a7a99f;flex:none}
+.ofcard-foot{display:flex;justify-content:space-between;align-items:center;padding:11px 16px 14px;border-top:1.5px dashed var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#84867e}
+.ofcard-foot b{font-size:15px;color:var(--green);letter-spacing:0}
+@media(max-width:520px){.ofcard{flex-basis:270px}}
 
 /* ---------- builder ---------- */
 #builder{background:var(--green);color:var(--chalk);position:relative}
@@ -501,33 +507,26 @@ footer{background:var(--ink);color:rgba(241,238,229,.7);padding:44px 0;font-size
 
 <header class="hero">
   <div class="wrap hero-in">
-    <div>
-      <h1 style="margin-top:18px">
+    <div class="hero-copy">
+      <h1>
         <span class="row">Stop buying</span>
         <span class="row hollow">clothes.</span>
         <span class="row">Start buying <span class="camel">outfits.</span></span>
       </h1>
       <p class="lede">Tell us what you need, what colours you like and what you can spend. We hand back complete, matched outfits — priced to your budget, ready to buy.</p>
       <div class="hero-ctas">
-        <a href="#builder" class="btn btn-green">Build my outfit — free <span class="arr">→</span></a>
-        <a href="#how" class="btn" style="border:1.5px solid var(--line);background:#fff">See how it works</a>
+        <a href="#builder" class="btn btn-green btn-hero">BUILD MY OUTFIT <span class="arr">→</span></a>
       </div>
-
     </div>
-    <aside class="ticket" aria-label="Example outfit ticket">
-      <div class="ticket-head">
-        <h3>Kit №047 — Smart-casual</h3>
-        <span class="score">COHESION 94/100</span>
-      </div>
-      <div id="hero-ticket-rows"></div>
-      <div class="ticket-total"><span>OUTFIT TOTAL</span><span class="t" id="hero-ticket-total">—</span></div>
-    </aside>
   </div>
 </header>
 
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track" id="marquee-track"></div>
-</div>
+<section class="ofeed-section" aria-label="Live outfit feed">
+  <div class="ofeed-label"><span class="pulse-dot"></span>LIVE OUTFIT FEED</div>
+  <div class="ofeed" id="ofeed">
+    <div class="ofeed-track" id="ofeed-track"></div>
+  </div>
+</section>
 
 <!-- BUILDER -->
 <section id="builder">
@@ -620,7 +619,7 @@ footer{background:var(--ink);color:rgba(241,238,229,.7);padding:44px 0;font-size
         <button class="btn btn-ghost" onclick="restart()">↺ Start over</button>
       </div>
       <div class="results-grid" id="results-grid"></div>
-      <p class="results-note">Demo catalogue shown. In production, results are drawn from live Awin product feeds across all ten retailers, with real-time stock and pricing. Links are affiliate-tracked — buying through OUTFITR never costs you more.</p>
+      
     </div>
   </div>
 </section>
@@ -831,7 +830,83 @@ const CATALOGUE=[
  P("Webbing Belt","belt","black",14,"ASOS",2,"reg"),
  P("Suede Belt","belt","navy",25.99,"Zara",3.5,"reg"),
  P("Curb Chain Necklace","chain","grey",18,"ASOS",1.5,"reg"),
- P("Rope Chain","chain","yellow",24,"JD Sports",1.5,"reg")
+ P("Rope Chain","chain","yellow",24,"JD Sports",1.5,"reg"),
+ // --- expanded colour range ---
+ P("Garment-Dyed T-shirt","tshirt","brown",25.99,"UNIQLO",1.8,"slim"),
+ P("Washed T-shirt","tshirt","blue",15.95,"H&M",1.8,"slim"),
+ P("Pigment T-shirt","tshirt","red",25.95,"Nike",1.8,"slim"),
+ P("Relaxed T-shirt","tshirt","pink",24.99,"Nike",1.8,"reg"),
+ P("Organic Cotton T-shirt","tshirt","yellow",16.99,"M&S",1.8,"reg"),
+ P("Oxford Shirt","shirt","black",38.95,"H&M",3.2,"reg"),
+ P("Poplin Shirt","shirt","grey",31.99,"M&S",3.2,"slim"),
+ P("Linen-Blend Shirt","shirt","pink",43.99,"H&M",3.2,"slim"),
+ P("Brushed Shirt","shirt","burgundy",29.95,"ASOS",3.2,"slim"),
+ P("Twill Shirt","shirt","olive",44.95,"ASOS",3.2,"slim"),
+ P("Heavyweight Hoodie","hoodie","green",32.95,"Nike",1,"reg"),
+ P("Washed Hoodie","hoodie","burgundy",79.99,"ASOS",1,"relaxed"),
+ P("Loopback Hoodie","hoodie","blue",46.95,"ASOS",1,"reg"),
+ P("Essential Hoodie","hoodie","brown",47.99,"H&M",1,"relaxed"),
+ P("Oversized Hoodie","hoodie","white",65.95,"END Clothing",1,"relaxed"),
+ P("Lambswool Jumper","jumper","burgundy",44.95,"M&S",3.2,"reg"),
+ P("Merino Jumper","jumper","green",41.95,"UNIQLO",3.2,"reg"),
+ P("Waffle-Knit Jumper","jumper","brown",36.95,"M&S",3.2,"slim"),
+ P("Cotton Jumper","jumper","blue",37.99,"Zara",3.2,"slim"),
+ P("Fine-Gauge Jumper","jumper","white",47.95,"ASOS",3.2,"reg"),
+ P("Bomber Jacket","jacket","beige",90,"Nike",2.6,"reg"),
+ P("Overshirt Jacket","jacket","grey",91,"END Clothing",2.6,"reg"),
+ P("Wool-Blend Coat","coat","grey",96,"M&S",4.2,"reg"),
+ P("Padded Coat","coat","brown",115,"H&M",4.2,"reg"),
+ P("Longline Coat","coat","green",96,"M&S",4.2,"reg"),
+ P("Slim Jeans","jeans","beige",86.95,"Next",2.3,"slim"),
+ P("Straight Jeans","jeans","white",81.99,"UNIQLO",2.3,"slim"),
+ P("Tapered Jeans","jeans","olive",52.99,"UNIQLO",2.3,"reg"),
+ P("Slim Chinos","chinos","black",37.99,"Zara",3.3,"relaxed"),
+ P("Relaxed Chinos","chinos","grey",28.95,"UNIQLO",3.3,"relaxed"),
+ P("Pleated Chinos","chinos","green",35.95,"Next",3.3,"slim"),
+ P("Wide Chinos","chinos","blue",33.99,"UNIQLO",3.3,"slim"),
+ P("Tapered Joggers","joggers","olive",34.95,"H&M",1,"slim"),
+ P("Essential Joggers","joggers","green",60.99,"JD Sports",1,"slim"),
+ P("Cuffed Joggers","joggers","burgundy",50.95,"ASOS",1,"relaxed"),
+ P("Relaxed Joggers","joggers","blue",35.95,"Nike",1,"slim"),
+ P("Tech-Fleece Joggers","joggers","brown",59.95,"adidas",1,"relaxed"),
+ P("Loopback Joggers","joggers","white",54.99,"adidas",1,"relaxed"),
+ P("Sweat Shorts","shorts","black",20.99,"Zara",2,"reg"),
+ P("Cargo Shorts","shorts","navy",18.99,"Nike",2,"reg"),
+ P("Linen-Blend Shorts","shorts","blue",19.95,"M&S",2,"reg"),
+ P("Jersey Shorts","shorts","green",18.99,"M&S",2,"reg"),
+ P("Twill Shorts","shorts","brown",28.95,"H&M",2,"relaxed"),
+ P("Tailored Trousers","trousers","beige",47.95,"Next",4.3,"slim"),
+ P("Pleated Trousers","trousers","olive",48.95,"M&S",4.3,"slim"),
+ P("Wide Trousers","trousers","green",44.95,"Zara",4.3,"slim"),
+ P("Smart Trousers","trousers","blue",44.95,"Next",4.3,"slim"),
+ P("Court Trainers","trainers","grey",92,"adidas",2,"reg"),
+ P("Retro Trainers","trainers","blue",86,"JD Sports",2,"reg"),
+ P("Leather Trainers","trainers","red",87,"ASOS",2,"reg"),
+ P("Suede Trainers","trainers","brown",66,"Nike",2,"reg"),
+ P("Chelsea Boots","boots","navy",61.95,"M&S",3.4,"reg"),
+ P("Chunky Boots","boots","olive",62.99,"M&S",3.4,"reg"),
+ P("Leather Boots","boots","grey",64.95,"Zara",3.4,"reg"),
+ P("Leather Loafer Shoes","shoes","beige",73.95,"Zara",4.4,"reg"),
+ P("Penny Loafer Shoes","shoes","grey",76.99,"Zara",4.4,"reg"),
+ P("Tassel Loafer Shoes","shoes","burgundy",68.99,"ASOS",4.4,"reg"),
+ P("6-Panel Cap","cap","grey",12.95,"Nike",1.7,"reg"),
+ P("Dad Cap","cap","olive",18.99,"H&M",1.7,"reg"),
+ P("Twill Cap","cap","green",14.95,"adidas",1.7,"reg"),
+ P("Corduroy Cap","cap","white",16.99,"Nike",1.7,"reg"),
+ P("Heritage Cap","cap","red",12.99,"H&M",1.7,"reg"),
+ P("Ribbed Beanie","beanie","navy",17.95,"M&S",1.6,"reg"),
+ P("Cuffed Beanie","beanie","beige",13.99,"M&S",1.6,"reg"),
+ P("Waffle Beanie","beanie","burgundy",16.99,"M&S",1.6,"reg"),
+ P("Chunky Beanie","beanie","brown",14.95,"JD Sports",1.6,"reg"),
+ P("Cotton Beanie","beanie","green",14.95,"H&M",1.6,"reg"),
+ P("Leather-Strap Watch","watch","navy",45.95,"ASOS",3,"reg"),
+ P("Chronograph Watch","watch","grey",45.99,"M&S",3,"reg"),
+ P("Mesh Watch","watch","green",50.95,"ASOS",3,"reg"),
+ P("Woven Belt","belt","beige",15.99,"ASOS",3.2,"reg"),
+ P("Braided Belt","belt","grey",16.95,"M&S",3.2,"reg"),
+ P("Reversible Belt","belt","olive",25.99,"M&S",3.2,"reg"),
+ P("Curb Chain","chain","black",23.95,"ASOS",1.5,"reg"),
+ P("Figaro Chain","chain","white",24.95,"ASOS",1.5,"reg"),
 ].map((p,i)=>({...p,id:i}));
 
 /* ============ GARMENT GLYPHS ============ */
@@ -1358,6 +1433,54 @@ function renderBuild(items){
 }
 
 
+/* ===== live rolling outfit feed ===== */
+let heroOutfits=[];
+function buildHeroFeed(){
+  const snap={g:new Set(state.garments),a:{...state.alloc},s:state.style,b:state.budget,c:{...state.colours}};
+  const configs=[
+    {g:["shirt","chinos","trainers","watch"],s:"smartcasual",b:180},
+    {g:["tshirt","jeans","trainers"],s:"casual",b:120},
+    {g:["hoodie","joggers","trainers","cap"],s:"streetwear",b:220},
+    {g:["shirt","trousers","shoes","belt"],s:"smart",b:260},
+    {g:["jumper","chinos","boots"],s:"casual",b:200},
+    {g:["tshirt","joggers","trainers","chain"],s:"streetwear",b:150},
+    {g:["jacket","jeans","boots","watch"],s:"smartcasual",b:280},
+    {g:["hoodie","jeans","trainers","beanie"],s:"casual",b:190}
+  ];
+  const out=[];
+  configs.forEach(cfg=>{
+    state.garments=new Set(cfg.g);state.colours={};state.style=cfg.s;state.budget=cfg.b;initAlloc();
+    let r=buildOutfits(cfg.b,false);if(!r.length)r=buildOutfits(cfg.b,true);
+    if(r[0]){const o=r[0];o.style=cfg.s;out.push(o);}
+  });
+  state.garments=snap.g;state.alloc=snap.a;state.style=snap.s;state.budget=snap.b;state.colours=snap.c;
+  return out;
+}
+function renderHeroFeed(){
+  heroOutfits=buildHeroFeed();
+  if(!heroOutfits.length)return;
+  const card=(o,idx)=>`<article class="ofcard">
+    <div class="ofcard-head">
+      <div><b>${styleLabel(o.style)}</b><span class="ofscore">${o.score}/100</span></div>
+      <button class="heart-btn" data-kind="outfit" data-key="${outfitKey(o)}" onclick="toggleHeroOutfitSave(this,${idx})" aria-label="Save this look">${HEART}</button>
+    </div>
+    <div class="ofitems">${o.items.map(i=>`<a class="ofitem" href="#" onclick="return false" title="View ${i.name} at ${i.retailer} (affiliate link — demo)">
+      <span class="ofsw" style="background:${COLOURS[i.colour].hex};color:${textCol(COLOURS[i.colour].hex)}">${glyphFor(i.cat)}</span>
+      <span class="ofn"><b>${i.name}</b><span class="ofr">${i.retailer} · ${COLOURS[i.colour].label}</span></span>
+      <span class="ofp">${gbp(i.price)}</span><span class="ofarrow">↗</span>
+    </a>`).join("")}</div>
+    <div class="ofcard-foot"><span>Outfit total</span><b>${gbp(o.total)}</b></div>
+  </article>`;
+  const cards=heroOutfits.map(card).join("");
+  $("ofeed-track").innerHTML=cards+cards;
+  syncHearts();
+  const feed=$("ofeed");
+  feed.addEventListener("mouseenter",()=>feed.classList.add("paused"));
+  feed.addEventListener("mouseleave",()=>feed.classList.remove("paused"));
+  feed.addEventListener("touchstart",()=>feed.classList.toggle("paused"),{passive:true});
+}
+function toggleHeroOutfitSave(el,idx){toggleOutfitSave(heroOutfits[idx%heroOutfits.length],el);}
+
 /* ===== resilient init — each block isolated so one failure can't cascade ===== */
 function initApp(){
   try{
@@ -1374,20 +1497,7 @@ function initApp(){
     num.addEventListener("blur",e=>{const v=clamp(Math.round(+e.target.value));applyBudget(v,true,true);});
   }catch(e){console.error("budget init failed",e);}
 
-  try{
-    const pick=n=>CATALOGUE.find(p=>p.name===n);
-    const demo=[pick("Oxford Button-Down Shirt"),pick("Slim Fit Chinos"),pick("Retro Court Trainers"),pick("Minimal Steel Watch")].filter(Boolean);
-    $("hero-ticket-rows").innerHTML=demo.map(i=>`<div class="trow">
-      <span class="swatch" style="background:${COLOURS[i.colour].hex};color:${textCol(COLOURS[i.colour].hex)}">${glyphFor(i.cat)}</span>
-      <span><span class="n">${i.name}</span><br><span class="r">${i.retailer}</span></span>
-      <span class="p">${gbp(i.price)}</span></div>`).join("");
-    const total=demo.reduce((a,i)=>a+i.price,0);
-    const budget=Math.max(Math.ceil(total/25)*25,total+5);
-    $("hero-ticket-total").textContent=`${gbp(total)} / ${gbp(budget)}`;
-    const rs=["ASOS","M&S","NEXT","NIKE","ADIDAS","H&M","ZARA","UNIQLO","JD SPORTS","END."];
-    const seq=rs.map(r=>`<span>${r}</span><span><i>✦</i></span>`).join("");
-    $("marquee-track").innerHTML=seq+seq;
-  }catch(e){console.error("hero init failed",e);}
+  try{ renderHeroFeed(); }catch(e){console.error("hero feed init failed",e);}
 
   try{ renderGarments(); }catch(e){console.error("builder init failed",e);}
 
