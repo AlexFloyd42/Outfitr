@@ -120,7 +120,7 @@ header.hero{
 .ofeed-track{display:flex;gap:18px;width:max-content;animation:ofeedroll 70s linear infinite;will-change:transform}
 .ofeed.paused .ofeed-track{animation-play-state:paused}
 @keyframes ofeedroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ofcard{flex:0 0 300px;background:var(--chalk);color:var(--ink);border-radius:16px;overflow:hidden;box-shadow:0 20px 40px -26px rgba(0,0,0,.6)}
+.ofcard{flex:0 0 340px;background:var(--chalk);color:var(--ink);border-radius:16px;overflow:hidden;box-shadow:0 20px 40px -26px rgba(0,0,0,.6)}
 .ofcard-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 16px 11px;border-bottom:1.5px dashed var(--line)}
 .ofcard-head b{font-size:15px;font-weight:800;text-transform:uppercase;font-variation-settings:'wdth' 108}
 .ofcard-head .ofscore{font-family:var(--mono);font-size:11px;color:var(--green);font-weight:600;margin-left:8px}
@@ -130,8 +130,9 @@ header.hero{
 .ofitem{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid #E8E4D7;text-decoration:none;color:inherit;transition:opacity .15s}
 .ofitem:last-child{border-bottom:none}
 .ofitem:hover{opacity:.62}
-.ofsw{width:38px;height:38px;border-radius:9px;flex:none;display:grid;place-items:center;border:1px solid rgba(0,0,0,.08)}
-.ofsw svg{width:22px;height:22px}
+.ofsw{width:80px;height:80px;border-radius:12px;flex:none;display:grid;place-items:center;border:1px solid rgba(0,0,0,.08);overflow:hidden}
+.ofsw svg{width:36px;height:36px}
+.ofsw img{border-radius:12px}
 .ofn{flex:1;min-width:0}
 .ofn b{font-size:13px;font-weight:600;line-height:1.2;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ofn .ofr{font-family:var(--mono);font-size:10px;color:#84867e;text-transform:uppercase;letter-spacing:.04em}
@@ -169,6 +170,11 @@ header.hero{
 .total-badge b{color:var(--camel);font-size:14px}
 .total-badge.bump{animation:bump .4s cubic-bezier(.3,1.6,.5,1)}
 @keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.15)}100%{transform:scale(1)}}
+
+.stock-toggle{display:inline-flex;gap:0;background:rgba(10,44,33,.5);border:1px solid var(--line-dark);border-radius:11px;padding:3px;margin-bottom:16px}
+.stock-btn{border:none;background:none;color:rgba(241,238,229,.55);font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:8px 16px;border-radius:9px;font-weight:600;transition:.25s}
+.stock-btn:hover{color:rgba(241,238,229,.8)}
+.stock-btn.on{background:var(--camel);color:var(--ink)}
 
 /* kit tray — selected items as removable chips */
 .kit-tray{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;min-height:0;transition:margin .3s}
@@ -280,9 +286,11 @@ header.hero{
 .wardrobe-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
 .wcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px;display:flex;gap:13px;align-items:center;position:relative;transition:transform .25s,box-shadow .25s;animation:cardIn .4s cubic-bezier(.2,.85,.3,1.1) both}
 .wcard:hover{transform:translateY(-2px);box-shadow:0 16px 30px -20px rgba(0,0,0,.4)}
-.wc-swatch{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;flex:none;border:1px solid rgba(0,0,0,.08)}
+.wc-swatch{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;flex:none;border:1px solid rgba(0,0,0,.08);overflow:hidden}
 .wc-swatch svg{width:29px;height:29px}
-.wc-swatch.sm{width:38px;height:38px}.wc-swatch.sm svg{width:22px;height:22px}
+.wc-swatch img{border-radius:12px}
+.wc-swatch.sm{width:38px;height:38px;overflow:hidden}.wc-swatch.sm svg{width:22px;height:22px}
+.wc-swatch.sm img{border-radius:9px}
 .wc-body{flex:1;min-width:0}
 .wc-body b{font-size:14px;font-weight:700;display:block;line-height:1.25}
 .wc-body small{font-family:var(--mono);font-size:10px;color:#84867e;text-transform:uppercase;letter-spacing:.03em}
@@ -416,29 +424,37 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .ocard:nth-child(2){animation-delay:.08s}
 .ocard:nth-child(3){animation-delay:.16s}
 @keyframes pop{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
-.ocard-head{padding:18px 20px 14px;border-bottom:1.5px dashed var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ocard-head{padding:16px 20px 12px;border-bottom:1.5px dashed var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
 .ocard-head b{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.01em}
 .badge-best{font-family:var(--mono);font-size:10px;letter-spacing:.1em;background:var(--stitch);color:#fff;padding:4px 9px;border-radius:999px;font-weight:600}
-.score-dial{position:relative;width:52px;height:52px;flex:none}
-.score-dial svg{transform:rotate(-90deg)}
-.score-dial .num{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--green)}
 .ocard-items{padding:6px 20px;flex:1}
-.oitem{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #E8E4D7}
+.oitem{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;gap:0 14px;padding:14px 0;border-bottom:1px solid #E8E4D7;align-items:center}
 .oitem:last-child{border-bottom:none}
-.oitem .n{font-size:13.5px;font-weight:600;line-height:1.3}
-.oitem .r{font-family:var(--mono);font-size:10.5px;color:#84867e;text-transform:uppercase;letter-spacing:.05em}
-.oitem .p{margin-left:auto;font-family:var(--mono);font-size:13px;font-weight:600;white-space:nowrap}
+.oitem .swatch{grid-row:1/3;align-self:start;width:128px;height:128px;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.08)}
+.oitem .swatch img{border-radius:14px}
+.oitem .oitem-info{grid-column:2;grid-row:1;align-self:end}
+.oitem .n{font-size:14px;font-weight:700;line-height:1.3}
+.oitem .oitem-right{grid-column:3;grid-row:1;display:flex;align-items:center;gap:8px;align-self:end}
+.oitem .p{font-family:var(--mono);font-size:14px;font-weight:700;white-space:nowrap}
+.oitem-heart{width:30px;height:30px}
+.oitem-heart svg{width:18px;height:18px}
+.oitem .oitem-bottom{grid-column:2/4;grid-row:2;margin-top:8px;align-self:start}
 .oitem a.shop{
-  font-family:var(--mono);font-size:10.5px;color:var(--green);text-decoration:none;border:1px solid var(--line);
-  padding:4px 9px;border-radius:999px;white-space:nowrap;transition:.15s;
+  display:inline-flex;align-items:center;gap:6px;background:var(--green);color:var(--chalk);text-decoration:none;
+  padding:9px 18px;border-radius:999px;font-size:12.5px;font-weight:700;font-family:var(--mono);letter-spacing:.03em;
+  transition:transform .18s,box-shadow .18s;box-shadow:0 8px 18px -10px rgba(14,58,44,.7);
 }
-.oitem a.shop:hover{background:var(--green);color:var(--chalk)}
-.why{background:#EBE7DA;margin:0 20px 16px;border-radius:12px;padding:12px 14px;font-size:12.5px;color:#3f423d;line-height:1.5}
-.why b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:4px}
+.oitem a.shop:hover{transform:translateY(-1px);box-shadow:0 12px 22px -10px rgba(14,58,44,.9)}
 .ocard-foot{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 18px;border-top:1.5px dashed var(--line)}
 .ocard-foot .tot{font-family:var(--mono)}
 .ocard-foot .tot small{display:block;font-size:10.5px;color:#84867e;letter-spacing:.08em;text-transform:uppercase}
 .ocard-foot .tot b{font-size:19px;color:var(--green)}
+.results-sort{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.results-sort span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,238,229,.55)}
+.sort-btn{border:1px solid var(--line-dark);background:none;color:rgba(241,238,229,.65);border-radius:999px;padding:7px 14px;font-family:var(--mono);font-size:11.5px;font-weight:600;transition:.15s}
+.sort-btn:hover{border-color:var(--camel-soft);color:rgba(241,238,229,.9)}
+.sort-btn.on{background:var(--camel);color:var(--ink);border-color:var(--camel)}
+@media(max-width:480px){.oitem .swatch{width:96px;height:96px}}
 .results-note{font-family:var(--mono);font-size:11.5px;color:rgba(241,238,229,.55);margin-top:18px;line-height:1.6}
 .over-banner{grid-column:1/-1;background:rgba(232,98,44,.12);border:1px solid rgba(232,98,44,.45);border-left:4px solid var(--stitch);border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;margin-bottom:4px}
 .over-banner .ob-ic{flex:none;width:26px;height:26px;color:var(--stitch);margin-top:1px}
@@ -555,6 +571,10 @@ footer{background:var(--ink);color:rgba(241,238,229,.7);padding:44px 0;font-size
         <span class="total-badge" id="total-badge"><b id="tb-num">0</b> selected</span>
       </div>
       <div class="kit-tray" id="kit-tray"></div>
+      <div class="stock-toggle">
+        <button class="stock-btn on" id="stock-in" onclick="setStock(true)">In stock</button>
+        <button class="stock-btn" id="stock-all" onclick="setStock(false)">Include out of stock</button>
+      </div>
       <div class="cat-list" id="cat-list"></div>
       <div class="panel-nav">
         <span class="err" id="err-1">Select at least one item to build with.</span>
@@ -580,11 +600,11 @@ footer{background:var(--ink);color:rgba(241,238,229,.7);padding:44px 0;font-size
       <div class="budget-top">
         <div class="budget-figure">
           <label for="budget-total">Total budget</label>
-          <div class="budget-input"><span>£</span><input id="budget-total" type="number" min="40" max="1000" value="150" inputmode="numeric"></div>
+          <div class="budget-input"><span>£</span><input id="budget-total" type="number" min="0" max="300" value="150" inputmode="numeric"></div>
         </div>
         <div class="budget-slider-wrap">
-          <input type="range" id="budget-slider" min="40" max="1000" step="10" value="150" aria-label="Total budget">
-          <div class="budget-scale"><span>£40</span><span>£1,000</span></div>
+          <input type="range" id="budget-slider" min="0" max="300" step="5" value="150" aria-label="Total budget">
+          <div class="budget-scale"><span>£0</span><span>£300</span></div>
         </div>
       </div>
       <div id="alloc-rows"></div>
@@ -698,16 +718,16 @@ footer{background:var(--ink);color:rgba(241,238,229,.7);padding:44px 0;font-size
 <div class="undo-toast" id="undo-toast"><span class="um" id="undo-msg"></span><button class="undo-btn" onclick="doUndo()">Undo</button></div>
 
 <script>
-/* ============ CATALOGUE (demo — stands in for Awin product feeds) ============ */
+/* ============ CATALOGUE ============ */
 const COLOURS = {
   black:{hex:"#1c1c1e",n:true,label:"Black"}, white:{hex:"#f7f5ef",n:true,label:"White"},
   grey:{hex:"#9a9a98",n:true,label:"Grey"}, navy:{hex:"#22314e",n:true,label:"Navy"},
   beige:{hex:"#d3bf9e",n:true,label:"Beige"}, brown:{hex:"#6e4f37",n:true,label:"Brown"},
   olive:{hex:"#5a6440",n:true,label:"Olive"},
   green:{hex:"#2f6b4f",n:false,hue:150,label:"Green"}, blue:{hex:"#3f76c9",n:false,hue:220,label:"Blue"},
-  red:{hex:"#b8382f",n:false,hue:5,label:"Red"}, burgundy:{hex:"#6e2434",n:false,hue:345,label:"Burgundy"},
-  orange:{hex:"#d9772f",n:false,hue:28,label:"Orange"}, yellow:{hex:"#d9b83c",n:false,hue:50,label:"Yellow"},
-  pink:{hex:"#d98ca4",n:false,hue:340,label:"Pink"}
+  red:{hex:"#b8382f",n:false,hue:5,bold:true,label:"Red"}, burgundy:{hex:"#6e2434",n:false,hue:345,label:"Burgundy"},
+  orange:{hex:"#d9772f",n:false,hue:28,bold:true,label:"Orange"}, yellow:{hex:"#d9b83c",n:false,hue:50,bold:true,label:"Yellow"},
+  pink:{hex:"#d98ca4",n:false,hue:340,bold:true,label:"Pink"}
 };
 const CATS = {
   tshirt:{label:"T-shirt",slot:"top",note:"Crew & oversized"}, shirt:{label:"Shirt",slot:"top",note:"Oxford & flannel"},
@@ -729,185 +749,191 @@ const STYLES = [
   {id:"streetwear",label:"Streetwear",band:[1,2.8],desc:"Hoodies, joggers, statement trainers. Rules bend here."},
   {id:"smart",label:"Smart",band:[3.5,5],desc:"Tailored trousers, proper shoes, sharp lines."}
 ];
-/* Demo catalogue — in production this is the normalised Awin feed DB */
-const P=(name,cat,colour,price,retailer,form,fit)=>({name,cat,colour,price,retailer,form,fit});
-const CATALOGUE=[
- // T-SHIRTS
- P("Heavyweight Crew T-shirt","tshirt","white",12.99,"H&M",2,"reg"),
- P("Boxy Fit Tee","tshirt","black",16,"ASOS",1.5,"relaxed"),
- P("AIRism Cotton T-shirt","tshirt","grey",14.9,"UNIQLO",2,"reg"),
- P("Sportswear Club Tee","tshirt","navy",22.95,"Nike",1.5,"reg"),
- P("Premium Pima Tee","tshirt","olive",25,"M&S",2,"slim"),
- P("Essentials Oversized Tee","tshirt","beige",18,"ASOS",1.5,"relaxed"),
- P("Trefoil Tee","tshirt","green",26,"adidas",1.5,"reg"),
- P("Textured Cotton Tee","tshirt","burgundy",19.99,"Zara",2.5,"slim"),
- // SHIRTS
- P("Oxford Button-Down Shirt","shirt","white",29.5,"M&S",3.5,"reg"),
- P("Linen Blend Shirt","shirt","beige",27.99,"Zara",3,"relaxed"),
- P("Brushed Flannel Overshirt","shirt","green",34.99,"H&M",2.5,"relaxed"),
- P("Slim Stretch Smart Shirt","shirt","blue",28,"Next",4,"slim"),
- P("Corduroy Shirt","shirt","brown",39.9,"UNIQLO",2.5,"reg"),
- P("Twill Overshirt","shirt","navy",45,"ASOS",3,"reg"),
- // HOODIES
- P("Club Fleece Hoodie","hoodie","grey",54.95,"Nike",1,"reg"),
- P("Essential Chenille Hoodie","hoodie","black",45,"JD Sports",1,"relaxed"),
- P("Trefoil Essentials Hoodie","hoodie","navy",60,"adidas",1,"reg"),
- P("Oversized Washed Hoodie","hoodie","beige",32,"ASOS",1,"relaxed"),
- P("Premium Loopback Hoodie","hoodie","olive",85,"END Clothing",1.5,"relaxed"),
- // JUMPERS
- P("Merino Crew Neck Jumper","jumper","navy",39.5,"M&S",3.5,"slim"),
- P("Waffle Knit Jumper","jumper","beige",34.99,"Zara",3,"reg"),
- P("Souffle Yarn Crew","jumper","grey",34.9,"UNIQLO",3,"reg"),
- P("Chunky Fisherman Knit","jumper","olive",48,"Next",2.5,"relaxed"),
- P("Fine Gauge Roll Neck","jumper","black",42,"ASOS",4,"slim"),
- // JACKETS
- P("Harrington Jacket","jacket","navy",59.5,"M&S",3.5,"reg"),
- P("Windrunner Jacket","jacket","black",74.95,"Nike",1.5,"reg"),
- P("Wool-Blend Overshirt Jacket","jacket","brown",69.99,"Zara",3,"relaxed"),
- P("Coach Jacket","jacket","green",55,"JD Sports",1.5,"reg"),
- P("Quilted Liner Jacket","jacket","olive",110,"END Clothing",2.5,"reg"),
- P("Denim Trucker Jacket","jacket","blue",49.99,"H&M",2,"reg"),
- // COATS
- P("Wool-Blend Overcoat","coat","black",119,"M&S",4.5,"reg"),
- P("Padded Parka","coat","olive",89.99,"H&M",2,"relaxed"),
- P("Mac Coat","coat","beige",99.99,"Zara",4,"reg"),
- P("Down Puffer","coat","navy",129.95,"Nike",1.5,"relaxed"),
- // JEANS
- P("Slim Stretch Jeans","jeans","navy",35,"Next",2.5,"slim"),
- P("Loose Fit Jeans","jeans","blue",39.99,"H&M",2,"relaxed"),
- P("Straight Selvedge Jeans","jeans","black",44.9,"UNIQLO",2.5,"reg"),
- P("Baggy Wash Jeans","jeans","grey",42,"ASOS",1.5,"relaxed"),
- P("Rigid Straight Jeans","jeans","blue",89,"END Clothing",2.5,"reg"),
- // CHINOS
- P("Slim Fit Chinos","chinos","beige",29.5,"M&S",3.5,"slim"),
- P("Relaxed Pleated Chinos","chinos","olive",35.99,"Zara",3,"relaxed"),
- P("Smart Stretch Chinos","chinos","navy",32,"Next",3.5,"slim"),
- P("Wide Fit Chinos","chinos","brown",34.9,"UNIQLO",3,"relaxed"),
- // JOGGERS
- P("Tech Fleece Joggers","joggers","grey",89.95,"Nike",1,"slim"),
- P("Essential Cuffed Joggers","joggers","black",30,"JD Sports",1,"slim"),
- P("Firebird Track Pants","joggers","navy",65,"adidas",1.5,"slim"),
- P("Relaxed Sweat Pants","joggers","beige",24.99,"H&M",1,"relaxed"),
- // SHORTS
- P("Chino Shorts","shorts","beige",19.5,"M&S",2.5,"reg"),
- P("Fleece Shorts","shorts","grey",27.95,"Nike",1,"relaxed"),
- P("Linen Blend Shorts","shorts","olive",25.99,"Zara",2.5,"reg"),
- // TROUSERS
- P("Tailored Wool-Look Trousers","trousers","grey",39.99,"Zara",4.5,"slim"),
- P("Pleated Wide Trousers","trousers","black",44.5,"M&S",4,"relaxed"),
- P("Smart Textured Trousers","trousers","navy",38,"Next",4.5,"slim"),
- P("Relaxed Twill Trousers","trousers","brown",49.9,"UNIQLO",3.5,"relaxed"),
- // TRAINERS
- P("Air Force 1 '07","trainers","white",114.95,"Nike",2,"reg"),
- P("Samba OG","trainers","black",90,"adidas",2,"reg"),
- P("Gazelle","trainers","green",85,"JD Sports",2,"reg"),
- P("Retro Court Trainers","trainers","white",34.99,"H&M",2,"reg"),
- P("Handball Spezial","trainers","navy",90,"adidas",2,"reg"),
- P("Leather Cupsole Trainers","trainers","beige",120,"END Clothing",2.5,"reg"),
- P("Canvas Plimsolls","trainers","olive",22,"ASOS",1.5,"reg"),
- // BOOTS
- P("Leather Chelsea Boots","boots","black",65,"M&S",4,"reg"),
- P("Suede Desert Boots","boots","beige",59.99,"Zara",3,"reg"),
- P("Chunky Lace-Up Boots","boots","brown",72,"ASOS",2.5,"reg"),
- // SHOES
- P("Leather Loafers","shoes","brown",59.5,"M&S",4.5,"reg"),
- P("Suede Derby Shoes","shoes","navy",69.99,"Zara",4.5,"reg"),
- P("Penny Loafers","shoes","black",78,"Next",4.5,"reg"),
- P("Faux Leather Derby Shoes","shoes","black",35.99,"H&M",4.5,"reg"),
- P("Smart Apron Loafers","shoes","brown",42,"ASOS",4,"reg"),
- // HEADWEAR
- P("Heritage86 Cap","cap","black",19.95,"Nike",1.5,"reg"),
- P("Washed Cotton Cap","cap","beige",12.99,"H&M",2,"reg"),
- P("Trefoil Baseball Cap","cap","navy",20,"adidas",1.5,"reg"),
- P("Ribbed Knit Beanie","beanie","black",14,"ASOS",1.5,"reg"),
- P("Fisherman Beanie","beanie","olive",16,"JD Sports",1.5,"reg"),
- P("Merino Beanie","beanie","grey",18.5,"M&S",2.5,"reg"),
- // ACCESSORIES
- P("Minimal Steel Watch","watch","black",45,"ASOS",3,"reg"),
- P("Canvas Field Watch","watch","olive",39.5,"M&S",2.5,"reg"),
- P("Leather Strap Watch","watch","brown",59.99,"Zara",4,"reg"),
- P("Full-Grain Leather Belt","belt","brown",22.5,"M&S",3.5,"reg"),
- P("Webbing Belt","belt","black",14,"ASOS",2,"reg"),
- P("Suede Belt","belt","navy",25.99,"Zara",3.5,"reg"),
- P("Curb Chain Necklace","chain","grey",18,"ASOS",1.5,"reg"),
- P("Rope Chain","chain","yellow",24,"JD Sports",1.5,"reg"),
- // --- expanded colour range ---
- P("Garment-Dyed T-shirt","tshirt","brown",25.99,"UNIQLO",1.8,"slim"),
- P("Washed T-shirt","tshirt","blue",15.95,"H&M",1.8,"slim"),
- P("Pigment T-shirt","tshirt","red",25.95,"Nike",1.8,"slim"),
- P("Relaxed T-shirt","tshirt","pink",24.99,"Nike",1.8,"reg"),
- P("Organic Cotton T-shirt","tshirt","yellow",16.99,"M&S",1.8,"reg"),
- P("Oxford Shirt","shirt","black",38.95,"H&M",3.2,"reg"),
- P("Poplin Shirt","shirt","grey",31.99,"M&S",3.2,"slim"),
- P("Linen-Blend Shirt","shirt","pink",43.99,"H&M",3.2,"slim"),
- P("Brushed Shirt","shirt","burgundy",29.95,"ASOS",3.2,"slim"),
- P("Twill Shirt","shirt","olive",44.95,"ASOS",3.2,"slim"),
- P("Heavyweight Hoodie","hoodie","green",32.95,"Nike",1,"reg"),
- P("Washed Hoodie","hoodie","burgundy",79.99,"ASOS",1,"relaxed"),
- P("Loopback Hoodie","hoodie","blue",46.95,"ASOS",1,"reg"),
- P("Essential Hoodie","hoodie","brown",47.99,"H&M",1,"relaxed"),
- P("Oversized Hoodie","hoodie","white",65.95,"END Clothing",1,"relaxed"),
- P("Lambswool Jumper","jumper","burgundy",44.95,"M&S",3.2,"reg"),
- P("Merino Jumper","jumper","green",41.95,"UNIQLO",3.2,"reg"),
- P("Waffle-Knit Jumper","jumper","brown",36.95,"M&S",3.2,"slim"),
- P("Cotton Jumper","jumper","blue",37.99,"Zara",3.2,"slim"),
- P("Fine-Gauge Jumper","jumper","white",47.95,"ASOS",3.2,"reg"),
- P("Bomber Jacket","jacket","beige",90,"Nike",2.6,"reg"),
- P("Overshirt Jacket","jacket","grey",91,"END Clothing",2.6,"reg"),
- P("Wool-Blend Coat","coat","grey",96,"M&S",4.2,"reg"),
- P("Padded Coat","coat","brown",115,"H&M",4.2,"reg"),
- P("Longline Coat","coat","green",96,"M&S",4.2,"reg"),
- P("Slim Jeans","jeans","beige",86.95,"Next",2.3,"slim"),
- P("Straight Jeans","jeans","white",81.99,"UNIQLO",2.3,"slim"),
- P("Tapered Jeans","jeans","olive",52.99,"UNIQLO",2.3,"reg"),
- P("Slim Chinos","chinos","black",37.99,"Zara",3.3,"relaxed"),
- P("Relaxed Chinos","chinos","grey",28.95,"UNIQLO",3.3,"relaxed"),
- P("Pleated Chinos","chinos","green",35.95,"Next",3.3,"slim"),
- P("Wide Chinos","chinos","blue",33.99,"UNIQLO",3.3,"slim"),
- P("Tapered Joggers","joggers","olive",34.95,"H&M",1,"slim"),
- P("Essential Joggers","joggers","green",60.99,"JD Sports",1,"slim"),
- P("Cuffed Joggers","joggers","burgundy",50.95,"ASOS",1,"relaxed"),
- P("Relaxed Joggers","joggers","blue",35.95,"Nike",1,"slim"),
- P("Tech-Fleece Joggers","joggers","brown",59.95,"adidas",1,"relaxed"),
- P("Loopback Joggers","joggers","white",54.99,"adidas",1,"relaxed"),
- P("Sweat Shorts","shorts","black",20.99,"Zara",2,"reg"),
- P("Cargo Shorts","shorts","navy",18.99,"Nike",2,"reg"),
- P("Linen-Blend Shorts","shorts","blue",19.95,"M&S",2,"reg"),
- P("Jersey Shorts","shorts","green",18.99,"M&S",2,"reg"),
- P("Twill Shorts","shorts","brown",28.95,"H&M",2,"relaxed"),
- P("Tailored Trousers","trousers","beige",47.95,"Next",4.3,"slim"),
- P("Pleated Trousers","trousers","olive",48.95,"M&S",4.3,"slim"),
- P("Wide Trousers","trousers","green",44.95,"Zara",4.3,"slim"),
- P("Smart Trousers","trousers","blue",44.95,"Next",4.3,"slim"),
- P("Court Trainers","trainers","grey",92,"adidas",2,"reg"),
- P("Retro Trainers","trainers","blue",86,"JD Sports",2,"reg"),
- P("Leather Trainers","trainers","red",87,"ASOS",2,"reg"),
- P("Suede Trainers","trainers","brown",66,"Nike",2,"reg"),
- P("Chelsea Boots","boots","navy",61.95,"M&S",3.4,"reg"),
- P("Chunky Boots","boots","olive",62.99,"M&S",3.4,"reg"),
- P("Leather Boots","boots","grey",64.95,"Zara",3.4,"reg"),
- P("Leather Loafer Shoes","shoes","beige",73.95,"Zara",4.4,"reg"),
- P("Penny Loafer Shoes","shoes","grey",76.99,"Zara",4.4,"reg"),
- P("Tassel Loafer Shoes","shoes","burgundy",68.99,"ASOS",4.4,"reg"),
- P("6-Panel Cap","cap","grey",12.95,"Nike",1.7,"reg"),
- P("Dad Cap","cap","olive",18.99,"H&M",1.7,"reg"),
- P("Twill Cap","cap","green",14.95,"adidas",1.7,"reg"),
- P("Corduroy Cap","cap","white",16.99,"Nike",1.7,"reg"),
- P("Heritage Cap","cap","red",12.99,"H&M",1.7,"reg"),
- P("Ribbed Beanie","beanie","navy",17.95,"M&S",1.6,"reg"),
- P("Cuffed Beanie","beanie","beige",13.99,"M&S",1.6,"reg"),
- P("Waffle Beanie","beanie","burgundy",16.99,"M&S",1.6,"reg"),
- P("Chunky Beanie","beanie","brown",14.95,"JD Sports",1.6,"reg"),
- P("Cotton Beanie","beanie","green",14.95,"H&M",1.6,"reg"),
- P("Leather-Strap Watch","watch","navy",45.95,"ASOS",3,"reg"),
- P("Chronograph Watch","watch","grey",45.99,"M&S",3,"reg"),
- P("Mesh Watch","watch","green",50.95,"ASOS",3,"reg"),
- P("Woven Belt","belt","beige",15.99,"ASOS",3.2,"reg"),
- P("Braided Belt","belt","grey",16.95,"M&S",3.2,"reg"),
- P("Reversible Belt","belt","olive",25.99,"M&S",3.2,"reg"),
- P("Curb Chain","chain","black",23.95,"ASOS",1.5,"reg"),
- P("Figaro Chain","chain","white",24.95,"ASOS",1.5,"reg"),
-].map((p,i)=>({...p,id:i}));
+/* Product catalogue — normalised from Awin retailer feeds */
+const P=(name,cat,colour,price,retailer,form,fit,inStock,image,link)=>({name,cat,colour,price,retailer,form,fit,inStock:inStock!==false,image:image||"",link:link||""});
+const MENSWEAR_BLOCK=['women','woman','womens','ladies','girls','youth','junior','(gs)','kids','infant','toddler','bra ','crop top','bikini','maternity','skirt','legging'];
+function menswearOnly(arr){return arr.filter(p=>{const t=(p.name||"").toLowerCase();return !MENSWEAR_BLOCK.some(w=>t.includes(w));});}
+let CATALOGUE=menswearOnly([
+ P("adidas Originals Jersey Joggers - Grey","joggers","grey",24.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Jersey_Joggers_-_Grey_-_ViaductClothing_-_-_-246760.jpg?v=1717053052","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-jersey-joggers-grey%3Fvariant%3D32872476508253"),
+ P("adidas Originals R.Y.V. Hoodie - Grey","hoodie","grey",24.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_R.Y.V._Hoodie_-_Grey_-_ViaductClothing_-_-_-253195.jpg?v=1717059975","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-r-y-v-hoodie-grey%3Fvariant%3D32932007837789"),
+ P("adidas Originals Spirit Radkin Sweat Pant - White","joggers","grey",27.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Spirit_Radkin_Sweat_Pant_-_White_-_ViaductClothing_-_-_-258601.jpg?v=1717064881","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-spirit-radkin-sweat-pant-white%3Fvariant%3D32934195363933"),
+ P("adidas Originals Beckenbauer Trainers - Brown","trainers","brown",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Beckenbauer_Trainers_-_Brown_-_ViaductClothing_-_-_-239472.jpg?v=1717042387","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-beckenbauer-trainers-brown%3Fvariant%3D32946973737053"),
+ P("adidas Originals R.Y.V. T Shirt - Grey","tshirt","grey",9.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_R.Y.V._T_Shirt_-_Grey_-_ViaductClothing_-_-_-253642.jpg?v=1717060380","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-r-y-v-t-shirt-grey%3Fvariant%3D32947779108957"),
+ P("adidas Originals Samstag Photo T Shirt - White","tshirt","white",9.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Samstag_Photo_T_Shirt_-_White_-_ViaductClothing_-_-_-255891.jpg?v=1717062612","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-samstag-photo-t-shirt-white%3Fvariant%3D32947782025309"),
+ P("adidas Originals R.Y.V. Crew Sweatshirt - Grey","jumper","grey",19.99,"Viaduct Clothing",3,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_R.Y.V._Crew_Sweatshirt_-_Grey_-_ViaductClothing_-_-_-253050.jpg?v=1717059846","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-r-y-v-crew-sweatshirt-grey%3Fvariant%3D32981278195805"),
+ P("adidas Originals Handball Spezial Trainers - Navy","trainers","navy",69.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Handball_Spezial_Trainers_-_Navy_-_ViaductClothing_-_-_-246258.jpg?v=1717052369","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-handball-spezial-trainers-navy%3Fvariant%3D33002878566493"),
+ P("adidas Originals Handball Spezial Trainers - Blue","trainers","blue",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Handball_Spezial_Trainers_-_Blue_-_ViaductClothing_-_-_-246235.jpg?v=1717052342","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-handball-spezial-trainers-blue%3Fvariant%3D33002901569629"),
+ P("adidas Originals Handball Spezial Trainers - Black","trainers","black",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Handball_Spezial_Trainers_-_Black_-_ViaductClothing_-_-_-246214.jpg?v=1717052317","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-handball-spezial-trainers-black%3Fvariant%3D39247922298973"),
+ P("adidas Originals Club Pillars Tee - Grey","tshirt","grey",14.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Club_Pillars_Tee_-_Grey_-_ViaductClothing_-_-_-241305.jpg?v=1717045303","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-club-pillars-tee-grey%3Fvariant%3D39345450418269"),
+ P("adidas Originals Ovalo Sweatshirt - Grey","jumper","grey",24.99,"Viaduct Clothing",3,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Ovalo_Sweatshirt_-_Grey_-_ViaductClothing_-_-_-250621.jpg?v=1717057567","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-ovalo-sweatshirt-grey%3Fvariant%3D39357204201565"),
+ P("adidas Originals Hamburg Shoes - Navy / White","trainers","navy",69.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/White_-_ViaductClothing_-_-_-246162.jpg?v=1717052253","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-hamburg-shoes-navy-white%3Fvariant%3D39684182474845"),
+ P("adidas Originals 1/4 Zip Jacket - Navy","jacket","navy",34.99,"Viaduct Clothing",2.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/4_Zip_Jacket_-_Navy_-_ViaductClothing_-_-_-228076.jpg?v=1717029681","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-1-4-zip-jacket-navy%3Fvariant%3D42059688378461"),
+ P("adidas Originals SPRT Foundation Sweat Shorts - Black","shorts","black",21.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_SPRT_Foundation_Sweat_Shorts_-_Black_-_ViaductClothing_-_-_-259512.jpg?v=1717065604","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-sprt-foundation-sweat-shorts-black%3Fvariant%3D39844197466205"),
+ P("adidas Originals ADV Adventure T Shirt - White","tshirt","white",9.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_ADV_Adventure_T_Shirt_-_White_-_ViaductClothing_-_-_-236842.jpg?v=1717038772","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adv-adventure-t-shirt-white%3Fvariant%3D39860638875741"),
+ P("New Balance 850 Mono Pack Trainers - Off White","trainers","white",59.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/New_Balance_850_Mono_Pack_Trainers_-_Off_White_-_ViaductClothing_-_-_-293291_1.jpg?v=1743158534","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnew-balance-850-mono-pack-trainers-off-white%3Fvariant%3D39888836788317"),
+ P("adidas Originals Terry Pants Joggers - Grey","joggers","grey",29.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Terry_Pants_Joggers_-_Grey_-_ViaductClothing_-_-_-264109.jpg?v=1717069239","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-terry-pants-joggers-grey%3Fvariant%3D40157006397533"),
+ P("Nike Futuara Icon T Shirt - Black","tshirt","black",17.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Nike_Futuara_Icon_T_Shirt_-_Black_-_ViaductClothing_-_-_-295130.jpg?v=1717102120","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnike-futuara-icon-t-shirt-black%3Fvariant%3D40225004781661"),
+ P("adidas Brilliant Basics Shorts - Red","shorts","red",16.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Brilliant_Basics_Shorts_-_Red_-_ViaductClothing_-_-_-221698.jpg?v=1717022423","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-brilliant-basics-shorts-red%3Fvariant%3D40328689188957"),
+ P("adidas Originals R.Y.V. Sweat Shorts - Purple","shorts","burgundy",24.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_R.Y.V._Sweat_Shorts_-_Purple_-_ViaductClothing_-_-_-253547.jpg?v=1717060287","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-r-y-v-sweat-shorts-purple%3Fvariant%3D40328724873309"),
+ P("adidas Originals 3-Stripes Sweatpants - Grey","joggers","grey",34.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_3-Stripes_Sweatpants_-_Grey_-_ViaductClothing_-_-_-229002-Photoroom.jpg?v=1740673576","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-3-stripes-sweatpants-grey%3Fvariant%3D40594729828445"),
+ P("adidas Originals MUS Balanta 96 Track Pants - Blue","joggers","navy",34.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_MUS_Balanta_96_Track_Pants_-_Blue_-_ViaductClothing_-_-_-248852.jpg?v=1717055767","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-mus-balanta-96-track-pants-blue%3Fvariant%3D40637381017693"),
+ P("adidas Originals SPRT Shadow 3-Stripes Tee - Black","tshirt","black",19.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_SPRT_Shadow_3-Stripes_Tee_-_Black_-_ViaductClothing_-_-_-259847.jpg?v=1717065866","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-sprt-shadow-3-stripes-tee-black%3Fvariant%3D40669702914141"),
+ P("adidas Originals Adicolor Premium Hoodie - White","hoodie","white",34.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Premium_Hoodie_-_White_-_ViaductClothing_-_-_-234453.jpg?v=1717036681","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-premium-hoodie-white%3Fvariant%3D40676881727581"),
+ P("adidas Originals SPRT Velour 3-Stripes Pants - Black","trousers","black",29.99,"Viaduct Clothing",4,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_SPRT_Velour_3-Stripes_Pants_-_Black_-_ViaductClothing_-_-_-260240-Photoroom.jpg?v=1741167871","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-sprt-velour-3-stripes-pants-black%3Fvariant%3D41266514133085"),
+ P("adidas Originals Adicolor Premium Tee - White","tshirt","white",19.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Premium_Tee_-_White_-_ViaductClothing_-_-_-234576.jpg?v=1717036781","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-premium-tee-white%3Fvariant%3D40677058805853"),
+ P("adidas x Daniel Patrick Hoops Thermal Tee - Grey","tshirt","grey",24.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_x_Daniel_Patrick_Hoops_Thermal_Tee_-_Grey_-_ViaductClothing_-_-_-290367.jpg?v=1741256905","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-x-daniel-patrick-hoops-thermal-tee-grey%3Fvariant%3D40827836956765"),
+ P("adidas Originals CW Herrington Jacket - Blue","jacket","blue",19.99,"Viaduct Clothing",2.5,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_CW_Herrington_Jacket_-_Blue_-_ViaductClothing_-_-_-242012.jpg?v=1717047016","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-cw-herrington-jacket-blue%3Fvariant%3D40877346979933"),
+ P("Reebok Classics Unisex Aztec II Shoes - Burgundy / Chalk","trainers","red",49.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Chalk_-_ViaductClothing_-_-_-298108.jpg?v=1717105910","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Freebok-classics-unisex-aztec-ii-shoes-burgundy-chalk%3Fvariant%3D40945096884317"),
+ P("Reebok Unisex Classic Nylon Shoes -Grey/Platinum","trainers","grey",29.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Platinum_-_ViaductClothing_-_-_-299339.jpg?v=1717107509","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Freebok-unisex-classic-nylon-shoes-grey-platinum%3Fvariant%3D40959113363549"),
+ P("adidas Originals Adventure Bucket Hat - Sandy Beige","cap","grey",24.99,"Viaduct Clothing",1.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adventure_Bucket_Hat_-_Sandy_Beige_-_ViaductClothing_-_-_-237495.jpg?v=1717039530","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adventure-bucket-hat-sandy-beige%3Fvariant%3D40987245969501"),
+ P("Reebok Classics Summer Bucket Hat - Light Sage - One Size Fits Most","cap","grey",19.99,"Viaduct Clothing",1.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Reebok_Classics_Summer_Bucket_Hat_-_Light_Sage_-_ViaductClothing_-_-_-298075.jpg?v=1717105868","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Freebok-classics-summer-bucket-hat-light-sage%3Fvariant%3D40988553445469"),
+ P("adidas Originals Adicolor Classics 3 Stripes Cargo Pants - Black","joggers","grey",49.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Classics_3_Stripes_Cargo_Pants_-_Black_-_ViaductClothing_-_-_-231127.jpg?v=1773075261","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-3-stripes-cargo-pants-black%3Fvariant%3D40988685336669"),
+ P("adidas Originals Adventure Cargo Pants -  Black","trousers","grey",34.99,"Viaduct Clothing",4,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adventure_Cargo_Pants_-_Black_-_ViaductClothing_-_-_-237533.jpg?v=1717039580","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adventure-cargo-pants-black-1%3Fvariant%3D40988721479773"),
+ P("adidas Originals Essential Crew Neck Sweatshirt - Grey","jumper","grey",34.99,"Viaduct Clothing",3,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Essential_Crew_Neck_Sweatshirt_-_Grey_-_ViaductClothing_-_-_-243398.jpg?v=1717048879","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-essential-crew-neck-sweatshirt-grey%3Fvariant%3D40989671227485"),
+ P("Reebok Unisex GL1000 Cross Trainer - Grey","trainers","grey",34.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Reebok_Unisex_GL1000_Cross_Trainer_-_Grey_-_ViaductClothing_-_-_-299385.jpg?v=1717107564","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Freebok-unisex-gl1000-cross-trainer-grey%3Fvariant%3D40989702881373"),
+ P("adidas Originals Sonic Dad Cap - Green - Green / One Size Fits Most","cap","grey",19.99,"Viaduct Clothing",1.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Sonic_Dad_Cap_-_Green_-_ViaductClothing_-_-_-258398.jpg?v=1717064727","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-sonic-dad-cap-green%3Fvariant%3D40989706256477"),
+ P("adidas Originals Unisex Indoor CT Shoes - Off White","trainers","white",49.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Unisex_Indoor_CT_Shoes_-_Off_White_-_ViaductClothing_-_-_-268824.jpg?v=1717073224","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-unisex-indoor-ct-shoes-off-white%3Fvariant%3D40991954829405"),
+ P("adidas Originals Unisex NMD_R1 V2 Shoes - Black","trainers","black",54.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Unisex_NMD_R1_V2_Shoes_-_Black_-_ViaductClothing_-_-_-269332.jpg?v=1717073622","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-unisex-nmd_r1-v2-shoes-black%3Fvariant%3D40991960531037"),
+ P("adidas Originals Unisex R.Y.V. Ball Cap - Chalky Brown","cap","grey",19.99,"Viaduct Clothing",1.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Unisex_R.Y.V._Ball_Cap_-_Chalky_Brown_-_ViaductClothing_-_-_-269859.jpg?v=1717074050","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-unisex-r-y-v-ball-cap-chalky-brown%3Fvariant%3D40992040747101"),
+ P("Reebok Classics Unisex Victory G Gore-Tex Shoes - Grey","trainers","grey",39.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Reebok_Classics_Unisex_Victory_G_Gore-Tex_Shoes_-_Grey_-_ViaductClothing_-_-_-298222.jpg?v=1717106056","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Freebok-classics-unisex-victory-g-gore-tex-shoes-grey%3Fvariant%3D40992138264669"),
+ P("Reebok Classics Unisex Victory G Gore-tex Shoes - Blue","trainers","blue",39.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Reebok_Classics_Unisex_Victory_G_Gore-tex_Shoes_-_Blue_-_ViaductClothing_-_-_-298178_1.jpg?v=1743185792","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Freebok-classics-unisex-victory-g-gore-tex-shoes-blue%3Fvariant%3D40992155762781"),
+ P("Nike Sportswear Club Tee - Dark Grey Heather/Black","tshirt","grey",24.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Black_-_ViaductClothing_-_-_-295413.jpg?v=1717102473","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnike-sportswear-club-tee-dark-grey-heather-black%3Fvariant%3D40998433554525"),
+ P("Nike Swoosh Box Logo Tee - Black & White","tshirt","black",19.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Nike_Swoosh_Box_Logo_Tee_-_Black_White_-_ViaductClothing_-_-_-295619.jpg?v=1717102713","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnike-swoosh-box-logo-tee-black-white%3Fvariant%3D40998598377565"),
+ P("Nike Swoosh Box Logo Tee - White","tshirt","white",14.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Nike_Swoosh_Box_Logo_Tee_-_White_-_ViaductClothing_-_-_-295630.jpg?v=1717102728","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnike-swoosh-box-logo-tee-white%3Fvariant%3D40998619086941"),
+ P("Nike Sportswear Woven Track Jackets - Black","jacket","black",49.99,"Viaduct Clothing",2.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Nike_Sportswear_Woven_Track_Jackets_-_Black_-_ViaductClothing_-_-_-295606.jpg?v=1717102700","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnike-sportswear-woven-track-jackets-black%3Fvariant%3D41002128932957"),
+ P("Nike NSW Hybrid T-Shirt - Black/White","tshirt","black",24.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/White_-_ViaductClothing_-_-_-295213.jpg?v=1717102223","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnike-nsw-hybrid-t-shirt-black-white%3Fvariant%3D41014199418973"),
+ P("Nike NSW New Modern HD Logo T Shirt - Green","tshirt","green",19.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Nike_NSW_New_Modern_HD_Logo_T_Shirt_-_Green_-_ViaductClothing_-_-_-295264.jpg?v=1717102286","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnike-nsw-new-modern-hd-logo-t-shirt-green%3Fvariant%3D41014215802973"),
+ P("adidas Originals Adicolor Classics Trefoil Hoodie - Victory Crimson","hoodie","red",29.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Classics_Trefoil_Hoodie_-_Victory_Crimson_-_ViaductClothing_-_-_-232425.jpg?v=1717034574","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-trefoil-hoodie-victory-crimson%3Fvariant%3D41018760986717"),
+ P("adidas Originals Adicolor Classics 3-Stripes Tee - Navy","tshirt","navy",17.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Classics_3-Stripes_Tee_-_Navy_-_ViaductClothing_-_-_-231524.jpg?v=1773075313","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-3-stripes-tee-navy%3Fvariant%3D41034009182301"),
+ P("adidas Originals Graphics United Sweat Shorts - Pink","shorts","pink",29.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Graphics_United_Sweat_Shorts_-_Pink_-_ViaductClothing_-_-_-245940.png?v=1717051959","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-graphics-united-sweat-shorts-pink%3Fvariant%3D41045152497757"),
+ P("adidas Utilitas Hooded Parka Coat - Focus Olive Green","coat","grey",79.99,"Viaduct Clothing",4,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Utilitas_Hooded_Parka_Coat_-_Focus_Olive_Green_-_ViaductClothing_-_-_-288358.jpg?v=1717093380","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-utilitas-hooded-parka-coat-focus-olive-green%3Fvariant%3D41045155151965"),
+ P("adidas Originals Adicolor Classic Winter Bucket Hat - Beige","cap","grey",19.99,"Viaduct Clothing",1.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Classic_Winter_Bucket_Hat_-_Beige_-_ViaductClothing_-_-_-231089.png?v=1773075195","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classic-winter-bucket-hat-beige%3Fvariant%3D41055333875805"),
+ P("adidas Originals Adicolor Essentials Trefoil Cargo Joggers - Pink","joggers","pink",39.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Essentials_Trefoil_Cargo_Joggers_-_Pink_-_ViaductClothing_-_-_-233054.png?v=1717035383","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-essentials-trefoil-cargo-joggers-pink%3Fvariant%3D41055337611357"),
+ P("adidas Originals Cartoon Trefoil Beanie - Beige","beanie","grey",21.99,"Viaduct Clothing",1.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Cartoon_Trefoil_Beanie_-_Beige_-_ViaductClothing_-_-_-240946.png?v=1717044690","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-cartoon-trefoil-beanie-beige%3Fvariant%3D41055360155741"),
+ P("adidas Originals Adicolor Classics Adibreak Joggers - Black","joggers","grey",44.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Classics_Adibreak_Joggers_-_Black_-_ViaductClothing_-_-_-231585.png?v=1773075313","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-adibreak-joggers-black%3Fvariant%3D41055372542045"),
+ P("adidas Originals Edge Seam Tee - Grey","tshirt","grey",21.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Edge_Seam_Tee_-_Grey_-_ViaductClothing_-_-_-242605.jpg?v=1717048027","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-edge-seam-tee-grey%3Fvariant%3D41078210199645"),
+ P("adidas Originals Samba Super Suede Trainers - Navy / White","trainers","navy",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/White_-_ViaductClothing_-_-_-255547.png?v=1717062281","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-samba-super-suede-trainers-navy-white%3Fvariant%3D41162638786653"),
+ P("adidas Originals R.Y.V Track Pants - Black","joggers","black",39.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_R.Y.V_Track_Pants_-_Black_-_ViaductClothing_-_-_-252874.png?v=1717059693","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-r-y-v-track-pants-black%3Fvariant%3D41166687109213"),
+ P("adidas Originals Unisex FYW S-97 Trainers - White / Solar Red","trainers","white",44.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Solar_Red_-_ViaductClothing_-_-_-268683.png?v=1717073115","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-unisex-fyw-s-97-trainers-white-solar-red%3Fvariant%3D41179824717917"),
+ P("adidas Originals New Summer Sweat Shorts - Grey","shorts","grey",29.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_New_Summer_Sweat_Shorts_-_Grey_-_ViaductClothing_-_-_-248894.png?v=1743497297","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-new-summer-sweat-shorts-grey%3Fvariant%3D41181761175645"),
+ P("adidas Originals Unisex Tennis Polo - Cream & White","tshirt","white",24.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Unisex_Tennis_Polo_-_Cream_White_-_ViaductClothing_-_-_-271275.png?v=1717075034","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-unisex-tennis-polo-cream-white%3Fvariant%3D41181764943965"),
+ P("adidas Originals Unisex Tennis Polo - Navy / White","tshirt","navy",19.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/White_-_ViaductClothing_-_-_-271358.png?v=1717075093","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-unisex-tennis-polo-navy-white%3Fvariant%3D41181765992541"),
+ P("adidas Originals Adicolor Classics Cut Line Track Pants - Mineral Green","joggers","green",39.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Classics_Cut_Line_Track_Pants_-_Mineral_Green_-_ViaductClothing_-_-_-231720.png?v=1717033742","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-cut-line-track-pants-mineral-green%3Fvariant%3D41243980169309"),
+ P("adidas Originals Adventure Mountain Front T-Shirt - Off White","tshirt","white",19.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adventure_Mountain_Front_T-Shirt_-_Off_White_-_ViaductClothing_-_-_-237890.png?v=1717040061","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adventure-mountain-front-t-shirt-off-white%3Fvariant%3D41244029714525"),
+ P("adidas Originals Class Of 72 Graphic Tee - Navy","tshirt","navy",21.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Class_Of_72_Graphic_Tee_-_Navy_-_ViaductClothing_-_-_-241191.png?v=1717045102","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-class-of-72-graphic-tee-navy%3Fvariant%3D41244053504093"),
+ P("adidas Originals Varsity Loose Graphic T-Shirt - Grey","tshirt","grey",17.99,"Viaduct Clothing",2,"relaxed",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Varsity_Loose_Graphic_T-Shirt_-_Grey_-_ViaductClothing_-_-_-272041.png?v=1717075581","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-varsity-loose-graphic-t-shirt-grey%3Fvariant%3D41244094431325"),
+ P("adidas Originals Rekive Retro Crew Tee - Wonder Steel","tshirt","blue",24.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Rekive_Retro_Crew_Tee_-_Wonder_Steel_-_ViaductClothing_-_-_-254041.png?v=1717060802","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-rekive-retro-crew-tee-wonder-steel%3Fvariant%3D41250555789405"),
+ P("adidas Originals ZX 5K Boost Trainers - Aluminium / Royal Blue","trainers","beige",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Royal_Blue_-_ViaductClothing_-_-_-280846_1.jpg?v=1743182748","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-zx-5k-boost-trainers-aluminium-royal-blue%3Fvariant%3D41815066771549"),
+ P("adidas Helionic Mid-Length Mens Down Jacket Winter Padded Coat - Black","coat","black",64.99,"Viaduct Clothing",4,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Helionic_Mid-Length_Mens_Down_Jacket_Winter_Padded_Coat_-_Black_-_ViaductClothing_-_-_-225942.jpg?v=1717027217","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-helionic-mid-length-mens-down-jacket-winter-padded-coat-black%3Fvariant%3D41357918634077"),
+ P("adidas Originals Adicolor 3-Stripes Cargo Pants - Black / White","trousers","black",44.99,"Viaduct Clothing",4,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/White_-_ViaductClothing_-_-_-230338.jpg?v=1773074985","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-3-stripes-cargo-pants-black-white%3Fvariant%3D41359480127581"),
+ P("adidas Originals Reclaim Logo Long Sleeve T-Shirt - Orbit Grey","tshirt","grey",29.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Reclaim_Logo_Long_Sleeve_T-Shirt_-_Orbit_Grey_-_ViaductClothing_-_-_-253911.jpg?v=1717060659","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-reclaim-logo-long-sleeve-t-shirt-orbit-grey%3Fvariant%3D41368566956125"),
+ P("adidas Originals Adicolor Classics 3-Stripes T-Shirt - Purple","tshirt","burgundy",19.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Classics_3-Stripes_T-Shirt_-_Purple_-_ViaductClothing_-_-_-231471.png?v=1773075315","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-3-stripes-t-shirt-purple%3Fvariant%3D41371690926173"),
+ P("adidas Originals Varsity Graphic Loose Tee - Magic Beige","tshirt","beige",14.99,"Viaduct Clothing",2,"relaxed",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Varsity_Graphic_Loose_Tee_-_Magic_Beige_-_ViaductClothing_-_-_-271979.png?v=1717075528","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-varsity-graphic-loose-tee-magic-beige%3Fvariant%3D41388887867485"),
+ P("adidas Originals Itasca Shorts - Black","shorts","black",27.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Itasca_Shorts_-_Black_-_ViaductClothing_-_-_-246646.jpg?v=1717052911","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-itasca-shorts-black%3Fvariant%3D41406250254429"),
+ P("New Balance Men's Fortitech Fleece Shorts - Grey","shorts","grey",19.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/New_Balance_Men_s_Fortitech_Fleece_Shorts_-_Grey_-_ViaductClothing_-_-_-294220.jpg?v=1717100994","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnew-balance-mens-fortitech-fleece-shorts-grey%3Fvariant%3D41411412197469"),
+ P("adidas Originals x Andr� Saraiva Sweat Shorts - White","shorts","white",29.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_x_Andre_Saraiva_Sweat_Shorts_-_White_-_ViaductClothing_-_-_-278838.jpg?v=1717081617","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-x-andre-saraiva-sweat-shorts-white%3Fvariant%3D41474989064285"),
+ P("adidas Originals TRX Vintage Shoes - Crystal White / Cream White","trainers","white",44.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Cream_White_-_ViaductClothing_-_-_-267045.jpg?v=1717071622","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-trx-vintage-shoes-crystal-white-cream-white%3Fvariant%3D41474995257437"),
+ P("adidas Originals Courtic Skateboarding Shoes - Green","trainers","green",59.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Courtic_Skateboarding_Shoes_-_Green_-_ViaductClothing_-_-_-241920.jpg?v=1717046812","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-courtic-skateboarding-shoes-green%3Fvariant%3D41475305570397"),
+ P("adidas Originals TRX Vintage Shoes - Feather Grey / Crystal White","trainers","grey",54.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Crystal_White_-_ViaductClothing_-_-_-267093.jpg?v=1717071669","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-trx-vintage-shoes-feather-grey-crystal-white%3Fvariant%3D41475338829917"),
+ P("adidas Originals Varsity Retro Crewneck Sweatshirt - Beige","jumper","beige",44.99,"Viaduct Clothing",3,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Varsity_Retro_Crewneck_Sweatshirt_-_Beige_-_ViaductClothing_-_-_-272104.jpg?v=1717075630","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-varsity-retro-crewneck-sweatshirt-beige%3Fvariant%3D41475510927453"),
+ P("adidas Originals OZWEEGO Shoes - Burgundy","trainers","red",59.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_OZWEEGO_Shoes_-_Burgundy_-_ViaductClothing_-_-_-250925.jpg?v=1717057843","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-ozweego-shoes-burgundy%3Fvariant%3D41480292925533"),
+ P("adidas Fleece Hoodie - Purple","hoodie","burgundy",44.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Fleece_Hoodie_-_Purple_-_ViaductClothing_-_-_-225255.jpg?v=1717026409","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-fleece-hoodie-purple%3Fvariant%3D41539193733213"),
+ P("adidas Originals Adicolor Essentials Trefoil Tall Joggers - Purple","joggers","burgundy",34.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Essentials_Trefoil_Joggers_-_Purple_-_ViaductClothing_-_-_-233403.jpg?v=1717035759","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-essentials-trefoil-joggers-purple%3Fvariant%3D41909847556189"),
+ P("adidas Originals Skateboarding Workshop Joggers (Gender Neutral) - Grey","joggers","grey",44.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Skateboarding_Workshop_Joggers_Gender_Neutral_-_Grey_-_ViaductClothing_-_-_-258003.jpg?v=1717064422","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-skateboarding-workshop-joggers-gender-neutral-grey%3Fvariant%3D41952998490205"),
+ P("adidas Originals Wander Hour Quarter-Snap Polar Fleece - Brown","jumper","brown",39.99,"Viaduct Clothing",3,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Wander_Hour_Quarter-Snap_Polar_Fleece_-_Brown_-_ViaductClothing_-_-_-272640.jpg?v=1717076055","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-wander-hour-quarter-snap-polar-fleece-brown%3Fvariant%3D41988111728733"),
+ P("adidas Originals R.Y.V. Loose Fit Tee - White","tshirt","white",24.99,"Viaduct Clothing",2,"relaxed",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_R.Y.V._Loose_Fit_Tee_-_White_-_ViaductClothing_-_-_-253313.jpg?v=1717060076","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-r-y-v-loose-fit-tee-white%3Fvariant%3D42006383067229"),
+ P("adidas Studio Lounge Tee - Medium Grey Heather","tshirt","grey",19.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Studio_Lounge_Tee_-_Medium_Grey_Heather_-_ViaductClothing_-_-_-284783.jpg?v=1717088765","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-studio-lounge-tee-medium-grey-heather%3Fvariant%3D42006459252829"),
+ P("adidas Originals Washed Out 4.0 Logo Long Sleeve T-Shirt - White","tshirt","white",19.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Washed_Out_4.0_Logo_Long_Sleeve_T-Shirt_-_White_-_ViaductClothing_-_-_-272683.jpg?v=1743672184","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-washed-out-4-0-logo-long-sleeve-t-shirt-white%3Fvariant%3D42007273242717"),
+ P("adidas Originals Adicolor Clean Classics 3-Stripes Shorts - Non Dyed","shorts","white",24.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Adicolor_Clean_Classics_3-Stripes_Shorts_-_Non_Dyed_-_ViaductClothing_-_-_-232603.jpg?v=1717034793","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-clean-classics-3-stripes-shorts-non-dyed%3Fvariant%3D42117156208733"),
+ P("adidas Originals R.Y.V. V-Line Woven Windbreaker - Beige","jacket","grey",54.99,"Viaduct Clothing",2.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_R.Y.V._V-Line_Woven_Windbreaker_-_Beige_-_ViaductClothing_-_-_-253746.jpg?v=1717060489","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-r-y-v-v-line-woven-windbreaker-beige%3Fvariant%3D42240977567837"),
+ P("adidas Originals Blue Version Essentials T-Shirt - Chalk White","tshirt","white",24.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_Blue_Version_Essentials_T-Shirt_-_Chalk_White_-_ViaductClothing_-_-_-239815.jpg?v=1717042867","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-blue-version-essentials-t-shirt-chalk-white%3Fvariant%3D42241379270749"),
+ P("adidas Comfy & Chill Sweatpants Joggers - Collegiate Green","joggers","grey",34.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Comfy_Chill_Sweatpants_Joggers_-_Collegiate_Green_-_ViaductClothing_-_-_-222706.jpg?v=1717023547","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-comfy-chill-sweatpants-joggers-collegiate-green%3Fvariant%3D42241520435293"),
+ P("adidas Originals R.Y.V. Woven Cargo Pants - Black","joggers","black",34.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_R.Y.V._Woven_Cargo_Pants_-_Black_-_ViaductClothing_-_-_-253775.jpg?v=1717060520","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-r-y-v-woven-cargo-pants-black%3Fvariant%3D42241900314717"),
+ P("adidas Botanically Dyed Shorts (Gender Neutral) -  Beige","shorts","beige",19.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Botanically_Dyed_Shorts_Gender_Neutral_-_Beige_-_ViaductClothing_-_-_-221522.jpg?v=1717022237","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-botanically-dyed-shorts-gender-neutral-beige%3Fvariant%3D42241944191069"),
+ P("adidas Studio Lounge Fleece Half-Zip Sweatshirt - Black","jumper","black",39.99,"Viaduct Clothing",3,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HB6591_1.jpg?v=1718558430","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-studio-lounge-fleece-half-zip-sweatshirt-black%3Fvariant%3D42333483139165"),
+ P("adidas Originals Graphics Stoked Fish Fleece Shorts - White","shorts","white",27.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HF4864_1.jpg?v=1719177625","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-graphics-stoked-fish-fleece-shorts-white%3Fvariant%3D42357994717277"),
+ P("Ellesse Serge Cap - Light Pink - Pink / One Size","cap","grey",17.99,"Viaduct Clothing",1.5,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SAMA2313-PIN_1.jpg?v=1773229752","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fellesse-serge-cap-light-pink%3Fvariant%3D42413329416285"),
+ P("Ellesse Marlon Cap - White - White / One Size","cap","grey",17.99,"Viaduct Clothing",1.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SAMA2364-WHT_1.jpg?v=1773229751","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fellesse-marlon-cap-white%3Fvariant%3D42413385941085"),
+ P("Ellesse Verna Cap - Light Orange - Orange / One Size","cap","grey",12.99,"Viaduct Clothing",1.5,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SANA2524-ORA_1.jpg?v=1720546066","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fellesse-verna-cap-light-orange%3Fvariant%3D42413407535197"),
+ P("adidas Originals 4D Cush Hoodie - Beige","hoodie","beige",49.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HF5677_4.jpg?v=1721031524","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-4d-cush-hoodie-beige%3Fvariant%3D42471483048029"),
+ P("adidas Originals 3-Stripes SC Cargo Joggers - Navy","joggers","navy",49.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HG4828_1.jpg?v=1721118285","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-3-stripes-sc-cargo-joggers-navy%3Fvariant%3D42481786290269"),
+ P("adidas Originals 3-Stripes SC Cargo Joggers - Black","joggers","grey",49.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HG4829_F_Model_eCom_1639123294573.jpg?v=1721118553","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-3-stripes-sc-cargo-joggers-black%3Fvariant%3D42481791598685"),
+ P("adidas Winter Jacket Colorblock Splicing Fleece - White","jacket","grey",64.99,"Viaduct Clothing",2.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HI1186_FC_eCom_1634094016041.jpg?v=1721119704","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-winter-jacket-colorblock-splicing-fleece-white%3Fvariant%3D42481818370141"),
+ P("adidas Originals Blue Version Essentials T-Shirt - Black","tshirt","black",29.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Playera_Essentials_Blue_Version_Negro_HD4826_HM30.jpg?v=1721379509","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-blue-version-essentials-t-shirt-black%3Fvariant%3D42494153293917"),
+ P("Ellesse Unisex Alba Cap - White - One Size - White / One Size","cap","grey",14.99,"Viaduct Clothing",1.5,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SAMA2267-WHT_1_1.jpg?v=1773229755","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fellesse-unisex-alba-cap-white-one-size%3Fvariant%3D42516400734301"),
+ P("Ellesse Unisex Fiamma Cap - Brown - One Size - Brown / One Size","cap","grey",14.99,"Viaduct Clothing",1.5,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SAQA2884-BRO_1.jpg?v=1773228764","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fellesse-unisex-fiamma-cap-brown-one-size%3Fvariant%3D42516419346525"),
+ P("Ellesse Tacomo T Shirt - Grey","tshirt","grey",17.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SHM13143-GRY_3.jpg?v=1722953562","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fellesse-tacomo-t-shirt-grey%3Fvariant%3D42549981872221"),
+ P("Ellesse Crotone 2 Tee - Navy","tshirt","navy",17.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SHQ17630-NAV_1.jpg?v=1722954195","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fellesse-crotone-2-tee-navy%3Fvariant%3D42549995044957"),
+ P("Ellesse Open T-Shirt - Light Blue","tshirt","blue",19.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SKT16908-BLU_1.jpg?v=1722955332","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fellesse-open-t-shirt-light-blue%3Fvariant%3D42550018834525"),
+ P("adidas Originals Adventure Dad Cap - Magic Beige / Craft Orange - Beige / One Size Fits Most","cap","grey",14.99,"Viaduct Clothing",1.5,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IB9491_model_white_0094bd63-b9c9-47f0-8aee-c3e1d92c9433.jpg?v=1773239599","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adventure-dad-cap-magic-beige-craft-orange%3Fvariant%3D42685719216221"),
+ P("adidas Originals ADV Adventure Hoodie - Orange","hoodie","orange",44.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Adventure_Hoodie_Orange_IC5355_01_laydown.jpg?v=1725832984","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adv-adventure-hoodie-orange%3Fvariant%3D42685867360349"),
+ P("adidas Originals Fuzi Graffiti Graphic Hoodie - White","hoodie","white",34.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IC5740_1_2b09d27e-e276-4e90-bab0-9a69d21b7a52.jpg?v=1725959701","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-fuzi-graffiti-graphic-hoodie-white%3Fvariant%3D42690853666909"),
+ P("adidas Originals Adicolor Classics Cutline Joggers - Blue Dawn","joggers","blue",44.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Adicolor_Classics_Cutline_Pant_Blue_IC9262_21_model.jpg?v=1725960436","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-cutline-joggers-blue-dawn%3Fvariant%3D42690907635805"),
+ P("adidas Originals Forum Low Shoes - Wonder Beige / Cloud White","trainers","beige",54.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Forum_Low_Shoes_Beige_IE7173_01_standard.jpg?v=1730283491","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-forum-low-shoes-wonder-beige-cloud-white%3Fvariant%3D53629932732801"),
+ P("adidas Originals Forum Low Shoes - Talc Sesame Grey","trainers","grey",54.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HQ1506_1.jpg?v=1730285783","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-forum-low-shoes-talc-sesame-grey%3Fvariant%3D53629971300737"),
+ P("adidas Originals Ozweego Trainers - Bliss / Off White","trainers","beige",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/GY6179_SLC_eCom_1659595624497-Photoroom.jpg?v=1731489436","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-ozweego-trainers-bliss-off-white%3Fvariant%3D53674952556929"),
+ P("New Balance NB All Terrain Short Sleeve Tee - Yellow","tshirt","yellow",14.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/mt13537kmq_nb_70_i-Photoroom.jpg?v=1731492063","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnew-balance-nb-all-terrain-short-sleeve-tee-yellow%3Fvariant%3D53674999218561"),
+ P("adidas Originals Adicolor Neuclassics Hoodie - Blue","hoodie","blue",49.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Adicolor_Neuclassics_Hoodie_Turquoise_IL2515_01_laydown.jpg?v=1732613432","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-neuclassics-hoodie-blue%3Fvariant%3D53747184992641"),
+ P("adidas Embossed Polar Fleece Hoodie - Yellow","hoodie","yellow",44.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IJ6429_3.jpg?v=1732614769","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-embossed-polar-fleece-hoodie-yellow%3Fvariant%3D53747206324609"),
+ P("New Balance Athletics Varsity Pack Hoodie - Grey","hoodie","grey",34.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/mt03514ag_nb_40_i.jpg?v=1736442903","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnew-balance-athletics-varsity-pack-hoodie-grey%3Fvariant%3D53972923089281"),
+ P("New Balance Tenacity Knit Pants - Navy","trousers","navy",29.99,"Viaduct Clothing",4,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/mp11091ecl_nb_40_i.jpg?v=1744636541","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnew-balance-tenacity-knit-pants-navy%3Fvariant%3D54224562553217"),
+ P("Ellesse Astra Retro Ribbed T Shirt - Off White","tshirt","white",19.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SAS16050_1.jpg?v=1744882596","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fellesse-astra-retro-ribbed-t-shirt-off-white%3Fvariant%3D54238921032065"),
+ P("Nike Air Max Command Trainers - Green / Gold","trainers","green",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/629993035_3-Photoroom.jpg?v=1747385663","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fnike-air-max-command-trainers-green-gold%3Fvariant%3D54308478976385"),
+ P("adidas Men's Cargo Track Pants Nylon Joggers - Black","joggers","black",39.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HG2069_F_Model_eCom_1660884307518.jpg?v=1748019934","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-mens-cargo-track-pants-nylon-joggers-black%3Fvariant%3D54336081559937"),
+ P("adidas Originals Hyperreal Long Sleeve Tee - White","tshirt","white",29.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HK5148_3.jpg?v=1748021015","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-hyperreal-long-sleeve-tee-white%3Fvariant%3D54336101712257"),
+ P("adidas Originals Rekive Slim Sweat Joggers - Grey","joggers","grey",44.99,"Viaduct Clothing",1,"slim",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HN1922_1.jpg?v=1748022168","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-rekive-slim-sweat-joggers-grey%3Fvariant%3D54336125600129"),
+ P("adidas Originals ADV Adventure Nature Awakening Cargo Pants - Beige","joggers","beige",44.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/HR3506_1.jpg?v=1748022812","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adv-adventure-nature-awakening-cargo-pants-beige%3Fvariant%3D54336129401217"),
+ P("adidas Tiro Reflective Joggers Tall - Grey","joggers","grey",39.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IA3065_1.jpg?v=1748025432","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-tiro-reflective-joggers-tall-grey%3Fvariant%3D54336158204289"),
+ P("adidas Lounge Fleece Pullover Hoodie - Brown","hoodie","brown",49.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IA9341_F_Model_eCom_1669801538497.jpg?v=1750149536","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-lounge-fleece-pullover-hoodie-brown%3Fvariant%3D54400262766977"),
+ P("adidas Lounge Heavy French Terry Pant Non Dyed - White","joggers","beige",39.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IC4076_3.jpg?v=1750151408","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-lounge-heavy-french-terry-pant-non-dyed-white%3Fvariant%3D54400327123329"),
+ P("adidas Z.N.E. Premium Full-Zip Hooded Track Jacket - Arctic Night","hoodie","blue",54.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IN5087_5.jpg?v=1750151944","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-z-n-e-premium-full-zip-hooded-track-jacket-arctic-night%3Fvariant%3D54400366248321"),
+ P("adidas Originals Gazelle Indoor Trainers - Core Black White","trainers","black",79.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/H06259_1.jpg?v=1752848463","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-indoor-trainers-core-black-white%3Fvariant%3D54487397794177"),
+ P("adidas x Sporty & Rich USA Handball Spezial Shoes - Collegiate Red / Night Indigo - IH8337","trainers","red",99.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IH8337_1_88b51245-37ff-4e49-ba98-34dca332ec94.jpg?v=1758276034","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-x-sporty-rich-usa-handball-spezial-shoes-collegiate-red-night-indigo-ih8337%3Fvariant%3D54764865094017"),
+ P("adidas Originals Adicolor Seasonal Archive Hoodie - Blue","hoodie","green",44.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Adicolor_Seasonal_Archive_Hoodie_Blue_HR5336_01_laydown.jpg?v=1759227227","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-seasonal-archive-hoodie-blue%3Fvariant%3D54808589861249"),
+ P("adidas Go-To Crest Graphic Long Sleeve Tee - Collegiate Green","tshirt","green",21.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IN6348_1.jpg?v=1759397631","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-go-to-crest-graphic-long-sleeve-tee-collegiate-green%3Fvariant%3D54825939960193"),
+ P("adidas Originals Mexicana Shoes - Team College Gold","trainers","yellow",74.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/H01823_2.jpg?v=1759399575","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-mexicana-shoes-team-college-gold%3Fvariant%3D54825988292993"),
+ P("adidas Originals Stan Smith Crepe Shoes - Off White / Cream White","trainers","beige",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Stan_Smith_Crepe_Shoes_White_IG5531_01_standard.jpg?v=1759498419","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-stan-smith-crepe-shoes-off-white-cream-white%3Fvariant%3D54837233090945"),
+ P("adidas Originals Gazelle Shoes - Team Victory Red / Off White","trainers","red",74.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Gazelle_Shoes_Burgundy_IF9652_01_standard.jpg?v=1759505227","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-shoes-team-victory-red-off-white%3Fvariant%3D54863136391553"),
+ P("adidas Originals Gazelle ADV Shoes - Green / White","trainers","green",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Gazelle_ADV_Shoes_Green_JH5247_01_standard.jpg?v=1759679857","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-adv-shoes-green-white%3Fvariant%3D54863147958657"),
+ P("adidas Originals Gazelle Trefoil Shoe - Better Scarlet / White","trainers","red",74.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/JI1534_1.jpg?v=1759680298","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-trefoil-shoe-better-scarlet-white%3Fvariant%3D54841685442945"),
+ P("adidas Originals Gazelle Trainers - Almost Yellow / White","trainers","yellow",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/GX2203_1.jpg?v=1760109334","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-trainers-almost-yellow-white%3Fvariant%3D54863193506177"),
+ P("adidas Originals Gazelle 85 Shoes - Semi Court Green","trainers","green",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Gazelle_85_Shoes_Green_GY2532_01_standard.jpg?v=1761138446","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-85-shoes-semi-court-green%3Fvariant%3D54919611548033"),
+ P("adidas Originals Gazelle Shoes - Preloved Yellow / Off White","trainers","yellow",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Gazelle_Shoes_Yellow_IF9654_01_standard.jpg?v=1761731235","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-shoes-preloved-yellow-off-white%3Fvariant%3D54923722654081"),
+ P("adidas Originals Gazelle 85 Shoes - Better Scarlet / Cloud White","trainers","red",74.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Gazelle_85_Shoes_Red_IG0455_01_standard.jpg?v=1761731564","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-85-shoes-better-scarlet-cloud-white%3Fvariant%3D54923727044993"),
+ P("adidas Originals Gazelle 85 Shoes - Clear Sky / Cloud White","trainers","blue",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Gazelle_85_Shoes_Blue_IG5003_01_standard.jpg?v=1761951968","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-85-shoes-clear-sky-cloud-white%3Fvariant%3D54933069660545"),
+ P("adidas Originals Handball Spezial Shoes - Magic Beige","trainers","beige",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/ID8779_1.jpg?v=1762191145","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-handball-spezial-shoes-magic-beige%3Fvariant%3D54941767074177"),
+ P("adidas Originals Gazelle Shoes - Tech Forest / Collegiate Green","trainers","green",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IG4986_01_standard.jpg?v=1762191948","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-shoes-tech-forest-collegiate-green%3Fvariant%3D54941826843009"),
+ P("adidas Originals Handball Spezial Shoes - Core Blue / Cream White","trainers","blue",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IG6194_01_standard.jpg?v=1762193656","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-handball-spezial-shoes-core-blue-cream-white%3Fvariant%3D54941832610177"),
+ P("adidas Originals Adicolor Classics 3-Stripes Pants - Black","joggers","black",39.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IA4794_1.jpg?v=1773075312","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-3-stripes-pants-black%3Fvariant%3D54948350263681"),
+ P("adidas Originals SL 72 RS Shoes - Collegiate Green / Core White","trainers","green",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/SL_72_RS_Shoes_Green_JH8643_01_00_standard.jpg?v=1764158839","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-sl-72-rs-shoes-collegiate-green-core-white%3Fvariant%3D55019656577409"),
+ P("adidas Originals Gazelle SPZL Shoes - Dark Green / Cloud White","trainers","green",89.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Gazelle_SPZL_Shoes_Green_IF5787_01_standard.jpg?v=1764251069","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-gazelle-spzl-shoes-dark-green-cloud-white%3Fvariant%3D55024499622273"),
+ P("adidas Originals Handball Spezial Shoes - Collegiate Green / Cloud White","trainers","green",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Handball_Spezial_Shoes_Green_JH5438_01_standard.jpg?v=1765725386","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-handball-spezial-shoes-collegiate-green-cloud-white%3Fvariant%3D55087880536449"),
+ P("adidas Originals SPEZIAL Wensley Low SPZL Shoes - Cardboard / Off White","trainers","beige",89.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IG8937_1.jpg?v=1765725571","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-spezial-wensley-low-spzl-shoes-cardboard-off-white%3Fvariant%3D55087880995201"),
+ P("adidas Essentials 3-Stripes French Terry Sweatshirt - Beige","jumper","beige",24.99,"Viaduct Clothing",3,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Essentials_3-Stripes_French_Terry_Sweatshirt_Beige_JE6377_01_laydown.jpg?v=1767975122","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-essentials-3-stripes-french-terry-sweatshirt-beige%3Fvariant%3D55160845402497"),
+ P("adidas Originals Jeans Shoes - Core Black / Cloud White","trainers","black",64.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Jeans_Shoes_Black_GW1399_01_00_standard.jpg?v=1767981369","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-jeans-shoes-core-black-cloud-white%3Fvariant%3D55161998803329"),
+ P("adidas Orignals Rivalry Low Shoes - Collegiate Green / Cloud White","trainers","green",54.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IE7209_1.jpg?v=1771235096","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-orignals-rivalry-low-shoes-collegiate-green-cloud-white%3Fvariant%3D55344945758593"),
+ P("adidas Originals Handball Spezial Shoes - Preloved Yellow / Cream","trainers","yellow",69.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Handball_Spezial_Shoes_Yellow_IF7088_01_standard.jpg?v=1771235980","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-handball-spezial-shoes-preloved-yellow-cream-if7088%3Fvariant%3D55344965353857"),
+ P("adidas Originals Neuclassics Polar Fleece 1/2 Zip Sweatshirt - White","jumper","white",59.99,"Viaduct Clothing",3,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Neuclassics_Polar_Fleece_1-2_Zip_Sweatshirt_White_IY4911_21_model.jpg?v=1771236644","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-neuclassics-polar-fleece-1-2-zip-sweatshirt-white-iy4911%3Fvariant%3D55344989274497"),
+ P("adidas Originals Outlined Trefoil Hoodie - Wonder Beige","hoodie","beige",44.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/JJ1505_01_laydown_hover.jpg?v=1773156122","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-outlined-trefoil-hoodie-wonder-beige-jj1505%3Fvariant%3D55345035673985"),
+ P("adidas Originals 80s Loose Buttoned 3-Stripes 11-Inch Bermuda Shorts - Shadow Brown","shorts","brown",34.99,"Viaduct Clothing",2,"relaxed",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/JC6524_1.jpg?v=1773156121","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-80s-loose-buttoned-3-stripes-11-inch-bermuda-shorts-shadow-brown%3Fvariant%3D55345144922497"),
+ P("adidas Future Icons 3-Stripes Pants - Grey","joggers","grey",39.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IR9203_1.jpg?v=1773156122","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-future-icons-3-stripes-pants-grey-ir9203%3Fvariant%3D55345493672321"),
+ P("adidas Originals Superstar Track Pants - Wonder Beige / Black","joggers","beige",29.99,"Viaduct Clothing",1,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/IM4544_4.jpg?v=1773156034","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-superstar-track-pants-wonder-beige-black-im4544%3Fvariant%3D55345567039873"),
+ P("adidas Originals Adicolor Classics SST Superstar Track Jacket - Trace Brown","jacket","brown",34.99,"Viaduct Clothing",2.5,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Adicolor_Classics_SST_Track_Jacket_Brown_JP2519_01_laydown.jpg?v=1781777486","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-sst-superstar-track-jacket-trace-brown%3Fvariant%3D55814207930753"),
+ P("adidas Originals Sport Design Studio Jabbar Graphic Tee - Ivory White","tshirt","white",19.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Sport_Design_Studio_Jabbar_Graphic_Tee_Beige_JN6769_21_model.jpg?v=1782410362","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-sport-design-studio-jabbar-graphic-tee-ivory-white-jn6769%3Fvariant%3D55842281226625"),
+ P("adidas Originals EQT Graphic Retro 90s T Shirt 1 - Cloud White","tshirt","white",34.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/EQT_Graphic_T-Shirt_1_White_JN4844_01_laydown.jpg?v=1782412243","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-eqt-graphic-retro-90s-t-shirt-1-cloud-white-jn4844%3Fvariant%3D55842330149249"),
+ P("adidas Originals Adicolor Classics SST Superstar Track Pants - Purple","joggers","burgundy",39.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Adicolor_Classics_SST_Track_Pants_Purple_IY9865_21_model_1.jpg?v=1782555753","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-adicolor-classics-sst-superstar-track-pants-purple-iy9865%3Fvariant%3D55846369067393"),
+ P("adidas Every Pace Graphic T-Shirt - White","tshirt","white",24.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Every_Pace_Graphic_T-Shirt_White_KB8051_42_detail.jpg?v=1782825390","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-every-pace-graphic-t-shirt-white-kb8051%3Fvariant%3D55853580910977"),
+ P("adidas Originals Men's Trefoil Essentials Sweatpants Joggers - Shadow Brown","joggers","brown",34.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Trefoil_Essentials_Joggers_Brown_IY7364_21_model_1.jpg?v=1782905146","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-ess-pt-shadow-brown-iy7364%3Fvariant%3D55854887174529"),
+ P("adidas Star Wars Mandalorian Graphic Hoodie - Night Grey","hoodie","grey",49.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/ADIDAS_STAR_WARS_THE_MANDALORIAN_HOODIE_BACK_GRAPHIC_Grey_JI5720_01_laydown_1.jpg?v=1783146736","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-m-sw-tm-hdy-night-grey-ji5720%3Fvariant%3D55854889533825"),
+ P("adidas Originals Archive Retro Beanie - Night Marine Green - Navy / One size","beanie","grey",19.99,"Viaduct Clothing",1.5,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Archive_Beanie_Blue_JL9569_01_00_standard_1.jpg?v=1783152623","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-beanie-night-marine-jl9569%3Fvariant%3D55854890156417"),
+ P("adidas Originals 3 Stripes Sweat Shorts - Preloved Ruby","shorts","red",27.99,"Viaduct Clothing",2,"reg",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Adicolor_3-Stripes_Shorts_Red_JP0994_21_model_1.jpg?v=1783102570","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-3-stripe-short-preloved-ruby-jp0994%3Fvariant%3D55854890844545"),
+ P("adidas Originals Adicolor Baggy Fit Firebird Track Pants - Trace Brown","joggers","brown",39.99,"Viaduct Clothing",1,"relaxed",false,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Adicolor_Baggy_Fit_Firebird_Track_Pants_Brown_JP1067_21_model_1.jpg?v=1782853181","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-baggy-tp-trace-brown-jp1067%3Fvariant%3D55854894449025"),
+ P("adidas Originals Burger & Fries Graphic T Shirt - Black","tshirt","black",19.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/adidas_Originals_T-Shirt_Black_JP2672_41_detail.jpg?v=1783146029","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-q12-ts-street-b-black-jp2672%3Fvariant%3D55854894907777"),
+ P("adidas Originals First Track Pants Firebird - Collegiate Green","joggers","green",39.99,"Viaduct Clothing",1,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/JX5781_1.jpg?v=1782899682","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-first-pant-collegiate-green-jx5781%3Fvariant%3D55854895530369"),
+ P("adidas Originals Essential Color Logo Oversized T-Shirt - Earth Strata","tshirt","brown",19.99,"Viaduct Clothing",2,"relaxed",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/KE6581_1.jpg?v=1783168587","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-ess-nc-os-tee-earth-strata-ke6581%3Fvariant%3D55854896218497"),
+ P("adidas Originals 3 Stripes Essentials Sweat Shorts - Green","shorts","green",29.99,"Viaduct Clothing",2,"reg",true,"https://cdn.shopify.com/s/files/1/0300/6631/1261/files/Essential_Regular_Shorts_Green_KE6584_21_model_1.jpg?v=1783272150","https://www.awin1.com/cread.php?awinmid=125096&awinaffid=2972349&ued=https%3A%2F%2Fviaductclothing.co.uk%2Fproducts%2Fadidas-originals-ess-nc-shorts-olive-strata-ke6584%3Fvariant%3D55854896415105"),
+
+].map((p,i)=>({...p,id:i})));
 
 /* ============ GARMENT GLYPHS ============ */
 const GLYPH={
@@ -920,35 +946,84 @@ const GLYPH={
 const glyphFor=cat=>GLYPH[CATS[cat].slot];
 
 /* ============ STATE ============ */
-const state={garments:new Set(),colours:{},alloc:{},budget:150,style:"smartcasual"};
+const state={garments:new Set(),colours:{},alloc:{},budget:150,style:"smartcasual",stockOnly:true};
 
 /* ============ COORDINATION ENGINE ============ */
 function textCol(hex){const c=parseInt(hex.slice(1),16);const l=.299*(c>>16&255)+.587*(c>>8&255)+.114*(c&255);return l>150?"#1c1c1e":"#f7f5ef"}
 function hueDist(a,b){const d=Math.abs(a-b)%360;return d>180?360-d:d}
 
+/* Colour demand weights — based on UK menswear sales data by category.
+   Higher = more commercially popular. Used to rank candidate pools and boost outfit scores. */
+const COLOUR_DEMAND = {
+  tshirt:  {black:30,white:25,grey:15,navy:12,olive:5,burgundy:4,blue:3,beige:3,brown:1,green:1},
+  shirt:   {white:25,navy:20,blue:18,grey:10,black:8,beige:6,brown:5,olive:3,green:2,burgundy:1},
+  hoodie:  {black:35,grey:25,navy:18,olive:6,beige:5,white:4,burgundy:3,green:2,blue:1,brown:1},
+  jumper:  {navy:25,grey:22,black:20,beige:10,brown:7,olive:5,burgundy:4,green:3,blue:2,white:2},
+  jacket:  {black:30,navy:22,olive:15,grey:10,brown:8,beige:6,blue:4,green:3,burgundy:1,white:1},
+  coat:    {black:32,navy:22,grey:15,olive:10,beige:8,brown:8,green:3,blue:1,burgundy:1},
+  jeans:   {navy:28,blue:25,black:22,grey:12,beige:5,white:4,brown:2,olive:1,green:1},
+  chinos:  {beige:22,navy:20,black:15,grey:12,olive:10,brown:8,green:5,blue:4,burgundy:2,white:2},
+  joggers: {black:35,grey:30,navy:18,beige:5,olive:5,brown:3,blue:2,green:1,burgundy:1},
+  shorts:  {navy:25,black:20,beige:18,grey:12,olive:8,blue:6,white:4,brown:3,green:2,burgundy:1},
+  trousers:{black:30,navy:25,grey:20,brown:10,beige:8,olive:4,green:1,blue:1,burgundy:1},
+  trainers:{white:30,black:28,grey:12,navy:8,beige:7,green:5,blue:4,brown:3,burgundy:1,olive:1},
+  boots:   {black:35,brown:30,beige:12,navy:8,grey:8,olive:4,burgundy:2,green:1},
+  shoes:   {black:30,brown:28,navy:15,beige:10,grey:8,burgundy:5,blue:2,green:1,white:1},
+  cap:     {black:35,navy:20,grey:15,beige:10,white:8,olive:5,green:3,blue:2,brown:1,burgundy:1},
+  beanie:  {black:30,grey:25,navy:18,beige:8,olive:7,brown:5,burgundy:3,green:2,blue:1,white:1},
+  watch:   {black:30,brown:25,navy:15,grey:12,olive:8,green:4,beige:3,white:2,blue:1},
+  belt:    {brown:30,black:28,navy:12,beige:10,grey:8,olive:5,burgundy:3,green:2,blue:1,white:1},
+  chain:   {grey:40,black:25,white:20,beige:8,brown:4,navy:3}
+};
+function demandWeight(cat,colour){return (COLOUR_DEMAND[cat]||{})[colour]||0.5;}
+
 function colourScore(items){
-  const cols=items.map(i=>COLOURS[i.colour]);
-  const accents=cols.filter(c=>!c.n);
-  const neutrals=cols.filter(c=>c.n);
+  const cols=items.map(i=>({col:COLOURS[i.colour],slot:CATS[i.cat].slot,name:i.name,cat:i.cat,colour:i.colour}));
+  const accents=cols.filter(c=>!c.col.n);
+  const neutrals=cols.filter(c=>c.col.n);
+  const boldItems=cols.filter(c=>c.col.bold);
   let s=0,notes=[];
-  if(accents.length===0){s+=30;notes.push("a clean neutral palette")}
-  else if(accents.length===1){s+=30;notes.push(`neutrals anchoring a single ${accents[0].label.toLowerCase()} accent`)}
-  else if(accents.length===2){
-    const d=hueDist(accents[0].hue,accents[1].hue);
-    if(d<45){s+=24;notes.push("two tonal accents in the same colour family")}
-    else if(d>150){s+=18;notes.push("a bold complementary colour pairing")}
-    else {s+=6;notes.push("competing accents")}
-  } else s-=6;
+
+  // === Bold colour rules (red, orange, yellow, pink) ===
+  const boldOnTop=boldItems.some(c=>c.slot==="top");
+  const boldOnBottom=boldItems.some(c=>c.slot==="bottom");
+  if(boldOnTop&&boldOnBottom)return{s:0,notes:["bold colours on top and bottom"],fail:true};
+  if(boldItems.length>=2)return{s:0,notes:["too many bold colours"],fail:true};
+  if(boldItems.length===1&&(boldItems[0].slot==="top"||boldItems[0].slot==="bottom"||boldItems[0].slot==="foot"))
+    return{s:0,notes:["bold colour on a main garment"],fail:true};
+  if(boldItems.length===1){s+=26;notes.push("bold accent on a detail piece")}
+
+  // === Standard colour harmony (no bold items) ===
+  if(boldItems.length===0){
+    if(accents.length===0){s+=30;notes.push("a clean neutral palette")}
+    else if(accents.length===1){s+=30;notes.push(`neutrals anchoring a single ${accents[0].col.label.toLowerCase()} accent`)}
+    else if(accents.length===2){
+      const d=hueDist(accents[0].col.hue,accents[1].col.hue);
+      if(d<45){s+=24;notes.push("two tonal accents in the same colour family")}
+      else if(d>150){s+=18;notes.push("a complementary colour pairing")}
+      else{s+=6;notes.push("competing accents")}
+    } else s-=6;
+  }
   if(neutrals.length>=Math.max(1,items.length-1))s+=6;
-  // clash check: 3+ distinct accent hues = fail
-  if(accents.length>2)return{s:0,notes:["too many competing colours"],fail:true};
-  // monochrome bonus
+  if(accents.length>2&&boldItems.length===0)return{s:0,notes:["too many competing colours"],fail:true};
   const uniq=new Set(items.map(i=>i.colour));
   if(uniq.size<=2&&accents.length===0){s+=4;notes.push("near-monochrome discipline")}
+
+  // === Commercial demand bonus — outfits in bestselling colours score higher ===
+  const avgDemand=cols.reduce((a,c)=>a+demandWeight(c.cat,c.colour),0)/cols.length;
+  // avgDemand typically 3–35; normalise to a 0–6 bonus (max ~6 points)
+  const demandBonus=Math.min(6,avgDemand/5);
+  s+=demandBonus;
+
   return{s:Math.min(40,s),notes};
 }
+
+/* Graphic/logo item detection — lowers formality so they don't pair with smart pieces */
+function isGraphic(name){return /\b(graphic|logo|print|aop|all.?over)\b/i.test(name);}
+
 function formalityScore(items,band){
-  const f=items.map(i=>i.form);
+  // graphic/logo items get a formality drop — they don't pair well with smart pieces
+  const f=items.map(i=>isGraphic(i.name)?Math.max(1,i.form-1.2):i.form);
   const inBand=f.filter(v=>v>=band[0]&&v<=band[1]).length/f.length;
   const spread=Math.max(...f)-Math.min(...f);
   let s=inBand*20 + Math.max(0,10-spread*3.5);
@@ -995,20 +1070,40 @@ function scoreOutfit(items,allocs,budget,band,allowOver){
 
 function poolFor(cat,budget,allowOver){
   const share=state.alloc[cat]/100*budget;
-  let pool=CATALOGUE.filter(p=>p.cat===cat);
-  if(state.colours[cat]){const c=pool.filter(p=>p.colour===state.colours[cat]);if(c.length)pool=c;}
+  let pool=CATALOGUE.filter(p=>p.cat===cat&&(!state.stockOnly||p.inStock!==false));
+  
+  // USER COLOUR PREFERENCE IS SACRED — never drop it silently
+  const userColour=state.colours[cat];
+  if(userColour){
+    const coloured=pool.filter(p=>p.colour===userColour);
+    if(coloured.length){
+      pool=coloured; // lock to user's chosen colour
+    }else{
+      // colour exists in full catalogue but not in stock — still only show that colour (will trigger over-budget fallback)
+      const allColoured=CATALOGUE.filter(p=>p.cat===cat&&p.colour===userColour);
+      if(allColoured.length)pool=allColoured;
+      // if colour doesn't exist at all for this category, fall through (shouldn't happen with UI-driven picks)
+    }
+  }
+  
   if(!allowOver){
     const win=pool.filter(p=>p.price<=share*1.35&&p.price>=share*0.35);
     if(win.length)pool=win;
+    // if price filter empties a colour-locked pool, keep the colour-locked pool (wider price, correct colour)
   }
-  // within budget: closest to the allocated share · over budget: cheapest first (minimise overage)
-  pool.sort((a,b)=>allowOver?(a.price-b.price):(Math.abs(a.price-share)-Math.abs(b.price-share)));
-  return pool.slice(0,6);
+  // Sort by: demand weight (high-selling colours first), then price closeness to budget share
+  pool.sort((a,b)=>{
+    const da=demandWeight(cat,a.colour),db=demandWeight(cat,b.colour);
+    const tierA=da>=15?2:da>=5?1:0, tierB=db>=15?2:db>=5?1:0;
+    if(tierA!==tierB)return tierB-tierA;
+    return allowOver?(a.price-b.price):(Math.abs(a.price-share)-Math.abs(b.price-share));
+  });
+  return pool.slice(0,8);
 }
 
 function buildOutfits(budget,allowOver){
   const band=STYLES.find(s=>s.id===state.style).band;
-  const cats=[...state.garments];
+  const cats=sortedGarments();
   const pools=cats.map(cat=>poolFor(cat,budget,allowOver));
   let combos=[[]];
   pools.forEach(pool=>{
@@ -1019,11 +1114,22 @@ function buildOutfits(budget,allowOver){
   let scored=combos.map(c=>scoreOutfit(c,state.alloc,budget,band,allowOver)).filter(Boolean);
   // within budget: rank by cohesion · over budget: cheapest (least overage) first, then cohesion
   scored.sort((a,b)=>allowOver?((a.total-b.total)||(b.score-a.score)):(b.score-a.score));
-  const picked=[];
-  for(const o of scored){
-    if(picked.every(p=>p.items.filter(i=>o.items.includes(i)).length<Math.ceil(o.items.length/2)))picked.push(o);
-    if(picked.length===4)break;
+  // Strict variety: try zero shared items first, relax to 1 if needed
+  function pickDiverse(scored,maxShared){
+    const picked=[];
+    for(const o of scored){
+      const dominated=picked.some(p=>{
+        let shared=0;
+        for(const i of o.items)if(p.items.some(pi=>pi.id===i.id)&&++shared>maxShared)return true;
+        return false;
+      });
+      if(!dominated)picked.push(o);
+      if(picked.length===4)break;
+    }
+    return picked;
   }
+  let picked=pickDiverse(scored,0);
+  if(picked.length<3)picked=pickDiverse(scored,1);
   return allowOver?picked:picked.filter(o=>o.score>=55);
 }
 
@@ -1036,13 +1142,23 @@ function assembleOutfits(){
 /* ============ UI RENDER ============ */
 const $=id=>document.getElementById(id);
 const gbp=v=>"£"+v.toFixed(2).replace(/\.00$/,"");
+function prodThumb(i,cls,size){
+  cls=cls||"swatch";size=size||44;
+  if(i.image){
+    const alt=(i.name||"").replace(/"/g,"&quot;");
+    return `<span class="${cls}" style="background:#f3f1ea"><img src="${i.image}" alt="${alt}" width="${size}" height="${size}" loading="lazy" style="width:${size}px;height:${size}px;object-fit:cover;border-radius:inherit" onerror="this.style.display='none'"></span>`;
+  }
+  return `<span class="${cls}" style="background:${COLOURS[i.colour].hex};color:${textCol(COLOURS[i.colour].hex)}">${glyphFor(i.cat)}</span>`;
+}
 
 const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>';
 const CROSS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 const CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
 const ZONE_META={head:"Headwear",top:"Upper body",bottom:"Lower body",foot:"Footwear",acc:"Accessories"};
 const ZONES=SLOTS.map(s=>s[0]);
-const zoneCount=z=>[...state.garments].filter(c=>CATS[c].slot===z).length;
+const ZONE_ORDER={head:0,top:1,bottom:2,foot:3,acc:4};
+function sortedGarments(){return [...state.garments].sort((a,b)=>{const va=ZONE_ORDER[CATS[a].slot],vb=ZONE_ORDER[CATS[b].slot];return (va!=null?va:9)-(vb!=null?vb:9);});}
+const zoneCount=z=>sortedGarments().filter(c=>CATS[c].slot===z).length;
 // categories with an existing selection start expanded
 const openZones=new Set();
 
@@ -1088,7 +1204,7 @@ function toggleGarment(id){
   updateTotalBadge(prev);
 }
 function renderKitTray(){
-  const items=[...state.garments];
+  const items=sortedGarments();
   $("kit-tray").innerHTML=items.map(id=>`
     <span class="chip"><span class="ic">${GLYPH[CATS[id].slot]}</span>${CATS[id].label}
       <button class="x" onclick="toggleGarment('${id}')" aria-label="Remove ${CATS[id].label}">${CROSS}</button>
@@ -1101,9 +1217,14 @@ function updateTotalBadge(prev){
     const b=$("total-badge");b.classList.remove("bump");void b.offsetWidth;b.classList.add("bump");
   }
 }
+function setStock(inStockOnly){
+  state.stockOnly=inStockOnly;
+  $("stock-in").classList.toggle("on",inStockOnly);
+  $("stock-all").classList.toggle("on",!inStockOnly);
+}
 function renderColours(){
-  $("colour-rows").innerHTML=[...state.garments].map(cat=>{
-    const avail=[...new Set(CATALOGUE.filter(p=>p.cat===cat).map(p=>p.colour))];
+  $("colour-rows").innerHTML=sortedGarments().map(cat=>{
+    const avail=[...new Set(CATALOGUE.filter(p=>p.cat===cat&&(!state.stockOnly||p.inStock!==false)).map(p=>p.colour))];
     const dots=avail.map(c=>`<button class="dot-btn ${state.colours[cat]===c?"sel":""}" style="background:${COLOURS[c].hex}" title="${COLOURS[c].label}" aria-label="${COLOURS[c].label}" onclick="setColour('${cat}','${c}')"></button>`).join("");
     return `<div class="colour-row">
       <span class="who"><span>${glyphFor(cat)}</span>${CATS[cat].label}</span>
@@ -1116,7 +1237,7 @@ function renderColours(){
 function setColour(cat,c){c?state.colours[cat]=c:delete state.colours[cat];renderColours()}
 
 function initAlloc(){
-  const cats=[...state.garments];
+  const cats=sortedGarments();
   const base={top:38,bottom:30,foot:32,head:8,acc:10};
   let raw=cats.map(c=>base[CATS[c].slot]||10);
   const sum=raw.reduce((a,b)=>a+b,0);
@@ -1125,7 +1246,7 @@ function initAlloc(){
   state.alloc[cats[0]]+=drift;
 }
 function renderAlloc(){
-  $("alloc-rows").innerHTML=[...state.garments].map(cat=>`
+  $("alloc-rows").innerHTML=sortedGarments().map(cat=>`
     <div class="alloc-row">
       <span class="who"><span>${glyphFor(cat)}</span>${CATS[cat].label}</span>
       <input type="range" min="5" max="100" value="${state.alloc[cat]}" oninput="setAlloc('${cat}',this.value)" aria-label="${CATS[cat].label} budget share">
@@ -1133,12 +1254,12 @@ function renderAlloc(){
     </div>`).join("");
 }
 function setAlloc(cat,v){
-  v=+v;const others=[...state.garments].filter(c=>c!==cat);
+  v=+v;const others=sortedGarments().filter(c=>c!==cat);
   const oldOthers=others.reduce((a,c)=>a+state.alloc[c],0);
   const newOthers=100-v;
   others.forEach(c=>state.alloc[c]=Math.max(3,Math.round(state.alloc[c]/(oldOthers||1)*newOthers)));
   state.alloc[cat]=100-others.reduce((a,c)=>a+state.alloc[c],0);
-  [...state.garments].forEach(c=>{
+  sortedGarments().forEach(c=>{
     const el=$("val-"+c);if(el)el.innerHTML=`<b>${state.alloc[c]}%</b>${gbp(state.alloc[c]/100*state.budget)}`;
     const row=el?el.closest(".alloc-row"):null;const slider=row?row.querySelector("input"):null;
     if(slider&&c!==cat)slider.value=state.alloc[c];
@@ -1159,7 +1280,7 @@ function goStep(n){
     $("err-1").classList.remove("show");
   }
   if(n===2)renderColours();
-  if(n===3){if(!Object.keys(state.alloc).length||![...state.garments].every(c=>c in state.alloc))initAlloc();
+  if(n===3){if(!Object.keys(state.alloc).length||!sortedGarments().every(c=>c in state.alloc))initAlloc();
     // prune alloc for removed garments
     Object.keys(state.alloc).forEach(c=>{if(!state.garments.has(c))delete state.alloc[c]});
     initAlloc();renderAlloc()}
@@ -1195,9 +1316,13 @@ function dial(score){
     <circle cx="26" cy="26" r="${r}" fill="none" stroke="${score>=85?"#0E3A2C":"#C9A265"}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${off}"/></svg>
     <span class="num">${score}</span></span>`;
 }
+let resultSort="score";
+function sortOutfits(how){resultSort=how;const m=$("results").dataset.meta?JSON.parse($("results").dataset.meta):{};
+  let sorted=[...lastOutfits];if(how==="low")sorted.sort((a,b)=>a.total-b.total);else if(how==="high")sorted.sort((a,b)=>b.total-a.total);
+  renderResultCards(sorted,m);document.querySelectorAll(".sort-btn").forEach(b=>b.classList.toggle("on",b.dataset.sort===how));}
 function renderResults(outfits,meta){
   meta=meta||{};
-  lastOutfits=outfits;
+  lastOutfits=outfits;resultSort="score";
   const names=["The Front-Runner","The Alternative","The Wildcard","The Curveball"];
   if(!outfits.length){
     $("results-title").textContent="No outfits cleared the quality bar";
@@ -1211,35 +1336,38 @@ function renderResults(outfits,meta){
     $("results-title").textContent=`Nothing fit your ${gbp(state.budget)} budget — here's the closest`;
     $("results-sub").textContent=`These ${outfits.length} option${outfits.length>1?"s":""} match your ${STYLES.find(s=>s.id===state.style).label.toLowerCase()} brief but need a little more room, starting from ${gbp(minTotal)}.`;
   }else{
-    $("results-title").textContent=`${outfits.length} outfit${outfits.length>1?"s":""} cleared the cohesion threshold`;
-    $("results-sub").textContent=`${STYLES.find(s=>s.id===state.style).label} · ${gbp(state.budget)} budget · ranked by score`;
+    $("results-title").textContent=`${outfits.length} outfit${outfits.length>1?"s":""} matched your brief`;
+    $("results-sub").innerHTML=`${STYLES.find(s=>s.id===state.style).label} · ${gbp(state.budget)} budget <span class="results-sort"><span>· Sort</span><button class="sort-btn on" data-sort="score" onclick="sortOutfits('score')">Best match</button><button class="sort-btn" data-sort="low" onclick="sortOutfits('low')">Price ↑</button><button class="sort-btn" data-sort="high" onclick="sortOutfits('high')">Price ↓</button></span>`;
   }
+  $("results").dataset.meta=JSON.stringify(meta);
+  renderResultCards(outfits,meta);
+}
+function renderResultCards(outfits,meta){
+  const over=meta.overBudget;
+  const names=["The Front-Runner","The Alternative","The Wildcard","The Curveball"];
   const banner=over?`<div class="over-banner">
     <span class="ob-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>
-    <div><b>Over your budget — but only just</b><p>We couldn't build a ${STYLES.find(s=>s.id===state.style).label.toLowerCase()} look from these pieces within ${gbp(state.budget)}. Rather than leave you empty-handed, here are the lowest-cost matches — the cheapest is ${gbp(minTotal)}${gap>0?`, about ${gbp(gap)} over`:""}. Nudge your budget up${state.garments.size>1?", swap a pricier item,":""} or drop a category to come back under.</p></div>
+    <div><b>Over your budget — but only just</b><p>We couldn't build a ${STYLES.find(s=>s.id===state.style).label.toLowerCase()} look from these pieces within ${gbp(state.budget)}. Rather than leave you empty-handed, here are the lowest-cost matches.</p></div>
   </div>`:"";
   $("results-grid").innerHTML=banner+outfits.map((o,idx)=>`
     <article class="ocard">
       <div class="ocard-head">
-        <div><b>${names[idx]}</b>${!over&&idx===0?' <span class="badge-best">TOP PICK</span>':""}${over?' <span class="badge-over">OVER BUDGET</span>':""}</div>
-        ${dial(o.score)}
+        <div><b>${names[idx]||"Option "+(idx+1)}</b>${!over&&idx===0&&resultSort==="score"?' <span class="badge-best">TOP PICK</span>':""}${over?' <span class="badge-over">OVER BUDGET</span>':""}</div>
       </div>
       <div class="ocard-items">
         ${o.items.map((i,j)=>`<div class="oitem">
-          <span class="swatch" style="background:${COLOURS[i.colour].hex};color:${textCol(COLOURS[i.colour].hex)}">${glyphFor(i.cat)}</span>
-          <span><span class="n">${i.name}</span><br><span class="r">${i.retailer} · ${COLOURS[i.colour].label}</span></span>
-          <span class="p">${gbp(i.price)}</span>
-          <button class="heart-btn oitem-heart" data-kind="item" data-key="${itemKey(i)}" onclick="toggleItemSaveAt(this,${idx},${j})" aria-label="Save ${i.name}">${HEART}</button>
-          <a class="shop" href="#" onclick="return false" title="Affiliate link (demo)">SHOP ↗</a>
+          ${prodThumb(i,"swatch",128)}
+          <span class="oitem-info"><span class="n">${i.name}</span></span>
+          <span class="oitem-right">
+            <span class="p">${gbp(i.price)}</span>
+            <button class="heart-btn oitem-heart" data-kind="item" data-key="${itemKey(i)}" onclick="toggleItemSaveAt(this,${idx},${j})" aria-label="Save ${i.name}">${HEART}</button>
+          </span>
+          <span class="oitem-bottom"><a class="shop" href="${i.link||'#'}" target="_blank" rel="noopener" title="Buy at ${i.retailer}">SHOP ↗</a></span>
         </div>`).join("")}
       </div>
-      <div class="why"><b>Why this works</b>${o.notes.slice(0,3).map(n=>n[0].toUpperCase()+n.slice(1)).join(". ")}.</div>
       <div class="ocard-foot">
         <span class="tot"><small>Outfit total</small><b class="${o.over>0?"over":""}">${gbp(o.total)}</b> <span style="color:#84867e;font-size:12px">/ ${gbp(state.budget)}</span>${o.over>0?`<span class="over-tag">${gbp(Math.ceil(o.over))} over</span>`:""}</span>
-        <div class="foot-actions">
-          <button class="heart-btn" data-kind="outfit" data-key="${outfitKey(o)}" onclick="toggleOutfitSaveAt(this,${idx})" aria-label="Save this outfit">${HEART}</button>
-          <button class="btn btn-green btn-sm">Buy this kit <span class="arr">→</span></button>
-        </div>
+        <button class="heart-btn" data-kind="outfit" data-key="${outfitKey(o)}" onclick="toggleOutfitSaveAt(this,${idx})" aria-label="Save this outfit">${HEART}</button>
       </div>
     </article>`).join("");
   syncHearts();
@@ -1267,7 +1395,7 @@ function afterSaveChange(){updateNavCount();syncHearts();if(profileOpen)renderPr
 function toggleItemSave(i,el){
   const k=itemKey(i);
   if(saved.items[k]){const obj=saved.items[k];delete saved.items[k];persist();showUndo(`Removed ${i.name}`,()=>{saved.items[k]=obj;persist();afterSaveChange();});}
-  else{saved.items[k]={name:i.name,cat:i.cat,colour:i.colour,price:i.price,retailer:i.retailer,savedAt:Date.now()};persist();}
+  else{saved.items[k]={name:i.name,cat:i.cat,colour:i.colour,price:i.price,retailer:i.retailer,image:i.image||"",link:i.link||"",savedAt:Date.now()};persist();}
   if(el){el.classList.remove("pulse");void el.offsetWidth;el.classList.add("pulse");}
   afterSaveChange();
 }
@@ -1275,9 +1403,9 @@ function toggleOutfitSave(o,el){
   const k=outfitKey(o);
   if(saved.outfits[k]){const obj=saved.outfits[k];delete saved.outfits[k];persist();showUndo("Removed outfit",()=>{saved.outfits[k]=obj;persist();afterSaveChange();});}
   else{
-    saved.outfits[k]={items:o.items.map(x=>({name:x.name,cat:x.cat,colour:x.colour,price:x.price,retailer:x.retailer})),score:o.score,total:o.total,style:state.style,savedAt:Date.now()};
+    saved.outfits[k]={items:o.items.map(x=>({name:x.name,cat:x.cat,colour:x.colour,price:x.price,retailer:x.retailer,image:x.image||"",link:x.link||""})),score:o.score,total:o.total,style:state.style,savedAt:Date.now()};
     // saving an outfit also drops each of its pieces into the wardrobe (keeping any already saved)
-    o.items.forEach(x=>{const ik=itemKey(x);if(!saved.items[ik])saved.items[ik]={name:x.name,cat:x.cat,colour:x.colour,price:x.price,retailer:x.retailer,savedAt:Date.now()};});
+    o.items.forEach(x=>{const ik=itemKey(x);if(!saved.items[ik])saved.items[ik]={name:x.name,cat:x.cat,colour:x.colour,price:x.price,retailer:x.retailer,image:x.image||"",link:x.link||"",savedAt:Date.now()};});
     persist();
   }
   if(el){el.classList.remove("pulse");void el.offsetWidth;el.classList.add("pulse");}
@@ -1341,7 +1469,7 @@ function renderWardrobe(items){
   grid.innerHTML=`<div class="wardrobe-grid">`+list.map(i=>{
     const k=itemKey(i);
     return `<div class="wcard">
-      <span class="wc-swatch" style="background:${COLOURS[i.colour].hex};color:${textCol(COLOURS[i.colour].hex)}">${glyphFor(i.cat)}</span>
+      ${prodThumb(i,"wc-swatch",52)}
       <div class="wc-body"><b>${i.name}</b><small>${i.retailer} · ${COLOURS[i.colour].label} · ${CATS[i.cat].label}</small><span class="wc-price">${gbp(i.price)}</span></div>
       <button class="heart-btn on" data-kind="item" data-key="${k}" onclick="removeSavedItemEl(this)" aria-label="Remove ${i.name}">${HEART}</button>
     </div>`;}).join("")+`</div>`;
@@ -1436,24 +1564,33 @@ function renderBuild(items){
 /* ===== live rolling outfit feed ===== */
 let heroOutfits=[];
 function buildHeroFeed(){
-  const snap={g:new Set(state.garments),a:{...state.alloc},s:state.style,b:state.budget,c:{...state.colours}};
+  const snap={g:new Set(state.garments),a:JSON.parse(JSON.stringify(state.alloc)),s:state.style,b:state.budget,c:JSON.parse(JSON.stringify(state.colours)),so:state.stockOnly};
+  state.stockOnly=true; // the public feed must only ever show approved, in-stock products
   const configs=[
-    {g:["shirt","chinos","trainers","watch"],s:"smartcasual",b:180},
-    {g:["tshirt","jeans","trainers"],s:"casual",b:120},
+    {g:["hoodie","joggers","trainers"],s:"streetwear",b:160},
+    {g:["tshirt","shorts","trainers"],s:"casual",b:100},
     {g:["hoodie","joggers","trainers","cap"],s:"streetwear",b:220},
-    {g:["shirt","trousers","shoes","belt"],s:"smart",b:260},
-    {g:["jumper","chinos","boots"],s:"casual",b:200},
-    {g:["tshirt","joggers","trainers","chain"],s:"streetwear",b:150},
-    {g:["jacket","jeans","boots","watch"],s:"smartcasual",b:280},
-    {g:["hoodie","jeans","trainers","beanie"],s:"casual",b:190}
+    {g:["jumper","joggers","trainers"],s:"casual",b:180},
+    {g:["jacket","shorts","trainers"],s:"casual",b:150},
+    {g:["tshirt","joggers","trainers"],s:"streetwear",b:130},
+    {g:["jacket","joggers","trainers","cap"],s:"streetwear",b:200},
+    {g:["jumper","shorts","trainers"],s:"casual",b:140},
+    {g:["hoodie","shorts","trainers"],s:"casual",b:120},
+    {g:["tshirt","trousers","trainers"],s:"smartcasual",b:140}
   ];
   const out=[];
+  const usedItemIds=new Set();
   configs.forEach(cfg=>{
     state.garments=new Set(cfg.g);state.colours={};state.style=cfg.s;state.budget=cfg.b;initAlloc();
-    let r=buildOutfits(cfg.b,false);if(!r.length)r=buildOutfits(cfg.b,true);
-    if(r[0]){const o=r[0];o.style=cfg.s;out.push(o);}
+    // in-stock only — no over-budget fallback, so the feed never surfaces unavailable items
+    const r=buildOutfits(cfg.b,false);
+    for(const o of r){
+      const ids=o.items.map(i=>i.id);
+      if(ids.some(id=>usedItemIds.has(id)))continue;
+      o.style=cfg.s;out.push(o);ids.forEach(id=>usedItemIds.add(id));break;
+    }
   });
-  state.garments=snap.g;state.alloc=snap.a;state.style=snap.s;state.budget=snap.b;state.colours=snap.c;
+  state.garments=snap.g;state.alloc=snap.a;state.style=snap.s;state.budget=snap.b;state.colours=snap.c;state.stockOnly=snap.so;
   return out;
 }
 function renderHeroFeed(){
@@ -1461,12 +1598,12 @@ function renderHeroFeed(){
   if(!heroOutfits.length)return;
   const card=(o,idx)=>`<article class="ofcard">
     <div class="ofcard-head">
-      <div><b>${styleLabel(o.style)}</b><span class="ofscore">${o.score}/100</span></div>
+      <div><b>${styleLabel(o.style)}</b></div>
       <button class="heart-btn" data-kind="outfit" data-key="${outfitKey(o)}" onclick="toggleHeroOutfitSave(this,${idx})" aria-label="Save this look">${HEART}</button>
     </div>
-    <div class="ofitems">${o.items.map(i=>`<a class="ofitem" href="#" onclick="return false" title="View ${i.name} at ${i.retailer} (affiliate link — demo)">
-      <span class="ofsw" style="background:${COLOURS[i.colour].hex};color:${textCol(COLOURS[i.colour].hex)}">${glyphFor(i.cat)}</span>
-      <span class="ofn"><b>${i.name}</b><span class="ofr">${i.retailer} · ${COLOURS[i.colour].label}</span></span>
+    <div class="ofitems">${o.items.map(i=>`<a class="ofitem" href="${i.link||'#'}" target="_blank" rel="noopener" title="Buy ${i.name}">
+      ${prodThumb(i,"ofsw",80)}
+      <span class="ofn"><b>${i.name}</b></span>
       <span class="ofp">${gbp(i.price)}</span><span class="ofarrow">↗</span>
     </a>`).join("")}</div>
     <div class="ofcard-foot"><span>Outfit total</span><b>${gbp(o.total)}</b></div>
@@ -1482,18 +1619,33 @@ function renderHeroFeed(){
 function toggleHeroOutfitSave(el,idx){toggleOutfitSave(heroOutfits[idx%heroOutfits.length],el);}
 
 /* ===== resilient init — each block isolated so one failure can't cascade ===== */
-function initApp(){
+async function loadExternalCatalogue(){
+  // Try to load an external catalogue.json (produced by process-feed.js + review-tool).
+  // Falls back silently to the baked-in catalogue if not found (e.g. opened as a standalone file).
+  try{
+    const res=await fetch("catalogue.json",{cache:"no-store"});
+    if(!res.ok)return false;
+    const data=await res.json();
+    if(Array.isArray(data)&&data.length){
+      CATALOGUE=menswearOnly(data).map((p,i)=>({...p,id:p.id!=null?p.id:i}));
+      return true;
+    }
+  }catch(e){/* no external file — use baked-in catalogue */}
+  return false;
+}
+async function initApp(){
+  await loadExternalCatalogue();
   try{
     const num=$("budget-total"),slider=$("budget-slider");
-    const clamp=v=>Math.min(1000,Math.max(40,v||40));
+    const clamp=v=>Math.min(300,Math.max(0,v||0));
     const applyBudget=(v,syncNum,syncSlider)=>{
       state.budget=v;
       if(syncNum)num.value=v;
-      if(syncSlider)slider.value=Math.min(1000,Math.max(40,v));
+      if(syncSlider)slider.value=Math.min(300,Math.max(0,v));
       renderAlloc();
     };
     slider.addEventListener("input",e=>applyBudget(+e.target.value,true,false));
-    num.addEventListener("input",e=>{state.budget=Math.max(1,+e.target.value||0);slider.value=Math.min(1000,Math.max(40,state.budget));renderAlloc();});
+    num.addEventListener("input",e=>{state.budget=Math.max(0,+e.target.value||0);slider.value=Math.min(300,Math.max(0,state.budget));renderAlloc();});
     num.addEventListener("blur",e=>{const v=clamp(Math.round(+e.target.value));applyBudget(v,true,true);});
   }catch(e){console.error("budget init failed",e);}
 
