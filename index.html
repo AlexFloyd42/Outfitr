@@ -117,7 +117,7 @@ header.hero{
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,98,44,.55)}70%{box-shadow:0 0 0 9px rgba(232,98,44,0)}100%{box-shadow:0 0 0 0 rgba(232,98,44,0)}}
 .ofeed{overflow:hidden;position:relative;
   -webkit-mask-image:linear-gradient(to right,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(to right,transparent,#000 3%,#000 97%,transparent)}
-.ofeed-track{display:flex;gap:18px;width:max-content;animation:ofeedroll 70s linear infinite;will-change:transform}
+.ofeed-track{display:flex;gap:18px;width:max-content;animation:ofeedroll 180s linear infinite;will-change:transform}
 .ofeed.paused .ofeed-track{animation-play-state:paused}
 @keyframes ofeedroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ofcard{flex:0 0 340px;background:var(--chalk);color:var(--ink);border-radius:16px;overflow:hidden;box-shadow:0 20px 40px -26px rgba(0,0,0,.6)}
@@ -454,8 +454,9 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .sort-btn{border:1px solid var(--line-dark);background:none;color:rgba(241,238,229,.65);border-radius:999px;padding:7px 14px;font-family:var(--mono);font-size:11.5px;font-weight:600;transition:.15s}
 .sort-btn:hover{border-color:var(--camel-soft);color:rgba(241,238,229,.9)}
 .sort-btn.on{background:var(--camel);color:var(--ink);border-color:var(--camel)}
-.shuffle-btn{border-color:var(--camel-soft);color:var(--camel-soft)}
-.shuffle-btn:hover{background:var(--camel);color:var(--ink);border-color:var(--camel)}
+.shuffle-bar{display:flex;justify-content:center;margin-bottom:22px}
+.btn-shuffle{font-size:15px;padding:15px 32px;letter-spacing:.05em;border-radius:999px;box-shadow:0 10px 24px -10px rgba(14,58,44,.7);transition:transform .18s,box-shadow .18s}
+.btn-shuffle:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(14,58,44,.9)}
 @media(max-width:480px){.oitem .swatch{width:96px;height:96px}}
 .results-note{font-family:var(--mono);font-size:11.5px;color:rgba(241,238,229,.55);margin-top:18px;line-height:1.6}
 .over-banner{grid-column:1/-1;background:rgba(232,98,44,.12);border:1px solid rgba(232,98,44,.45);border-left:4px solid var(--stitch);border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;margin-bottom:4px}
@@ -627,6 +628,9 @@ footer{background:var(--ink);color:rgba(241,238,229,.7);padding:44px 0;font-size
           <p class="hint" style="margin:4px 0 0" id="results-sub"></p>
         </div>
         <button class="btn btn-ghost" onclick="restart()">↺ Start over</button>
+      </div>
+      <div id="shuffle-bar" class="shuffle-bar" hidden>
+        <button class="btn btn-green btn-shuffle" onclick="shuffleResults()">⇄ SHUFFLE OUTFITS</button>
       </div>
       <div class="results-grid" id="results-grid"></div>
       
@@ -1314,19 +1318,19 @@ function renderResults(outfits,meta){
   if(!outfits.length){
     $("results-title").textContent="No outfits cleared the quality bar";
     $("results-sub").textContent="Try removing a colour preference or nudging your budget — we won't show you a fit we can't stand behind.";
-    $("results-grid").innerHTML="";return;
+    $("results-grid").innerHTML="";$("shuffle-bar").hidden=true;return;
   }
   const over=meta.overBudget;
   const minTotal=Math.min(...outfits.map(o=>o.total));
   const gap=Math.ceil(minTotal-state.budget);
-  const shuffleBtn=`<button class="sort-btn shuffle-btn" onclick="shuffleResults()" title="Refresh with the same inputs">⇄ Shuffle</button>`;
   if(over){
     $("results-title").textContent=`Nothing fit your ${gbp(state.budget)} budget — here's the closest`;
-    $("results-sub").innerHTML=`These ${outfits.length} option${outfits.length>1?"s":""} match your brief but need a little more room, starting from ${gbp(minTotal)}. <span class="results-sort">${shuffleBtn}</span>`;
+    $("results-sub").innerHTML=`These ${outfits.length} option${outfits.length>1?"s":""} match your brief but need a little more room, starting from ${gbp(minTotal)}.`;
   }else{
     $("results-title").textContent=`${outfits.length} outfit${outfits.length>1?"s":""} matched your brief`;
-    $("results-sub").innerHTML=`${gbp(state.budget)} budget <span class="results-sort"><span>· Sort</span><button class="sort-btn on" data-sort="score" onclick="sortOutfits('score')">Best match</button><button class="sort-btn" data-sort="low" onclick="sortOutfits('low')">Price ↑</button><button class="sort-btn" data-sort="high" onclick="sortOutfits('high')">Price ↓</button>${shuffleBtn}</span>`;
+    $("results-sub").innerHTML=`${gbp(state.budget)} budget <span class="results-sort"><span>· Sort</span><button class="sort-btn on" data-sort="score" onclick="sortOutfits('score')">Best match</button><button class="sort-btn" data-sort="low" onclick="sortOutfits('low')">Price ↑</button><button class="sort-btn" data-sort="high" onclick="sortOutfits('high')">Price ↓</button></span>`;
   }
+  $("shuffle-bar").hidden=false;
   $("results").dataset.meta=JSON.stringify(meta);
   renderResultCards(outfits,meta);
 }
@@ -1555,27 +1559,36 @@ function buildHeroFeed(){
   const snap={g:new Set(state.garments),a:JSON.parse(JSON.stringify(state.alloc)),s:state.style,b:state.budget,c:JSON.parse(JSON.stringify(state.colours)),so:state.stockOnly};
   state.stockOnly=true; // the public feed must only ever show approved, in-stock products
   const configs=[
-    {g:["hoodie","joggers","trainers"],s:"streetwear",b:160},
-    {g:["tshirt","shorts","trainers"],s:"casual",b:100},
-    {g:["hoodie","joggers","trainers","cap"],s:"streetwear",b:220},
-    {g:["jumper","joggers","trainers"],s:"casual",b:180},
-    {g:["jacket","shorts","trainers"],s:"casual",b:150},
-    {g:["tshirt","joggers","trainers"],s:"streetwear",b:130},
-    {g:["jacket","joggers","trainers","cap"],s:"streetwear",b:200},
-    {g:["jumper","shorts","trainers"],s:"casual",b:140},
-    {g:["hoodie","shorts","trainers"],s:"casual",b:120},
-    {g:["tshirt","trousers","trainers"],s:"smartcasual",b:140}
+    {g:["hoodie","joggers","trainers"],s:"streetwear",b:200},
+    {g:["tshirt","shorts","trainers"],s:"casual",b:150},
+    {g:["hoodie","joggers","trainers","cap"],s:"streetwear",b:240},
+    {g:["jumper","joggers","trainers"],s:"casual",b:200},
+    {g:["jacket","shorts","trainers"],s:"casual",b:180},
+    {g:["tshirt","joggers","trainers"],s:"streetwear",b:160},
+    {g:["jacket","joggers","trainers","cap"],s:"streetwear",b:240},
+    {g:["jumper","shorts","trainers"],s:"casual",b:170},
+    {g:["hoodie","shorts","trainers"],s:"casual",b:150},
+    {g:["tshirt","trousers","trainers"],s:"smartcasual",b:170},
+    {g:["hoodie","joggers","cap"],s:"streetwear",b:150},
+    {g:["tshirt","shorts","cap"],s:"casual",b:110},
+    {g:["jacket","joggers","trainers"],s:"streetwear",b:220},
+    {g:["tshirt","joggers","cap"],s:"streetwear",b:130},
+    {g:["hoodie","shorts","cap"],s:"casual",b:130}
   ];
   const out=[];
-  const usedItemIds=new Set();
+  const seenOutfitKeys=new Set();
+  // Take up to 2 distinct outfits from each config, deduping on the whole-outfit signature
+  // (a shopper doesn't mind a popular item recurring; we just avoid identical outfits).
   configs.forEach(cfg=>{
     state.garments=new Set(cfg.g);state.colours={};state.style=cfg.s;state.budget=cfg.b;initAlloc();
-    // in-stock only — no over-budget fallback, so the feed never surfaces unavailable items
     const r=buildOutfits(cfg.b,false);
+    let taken=0;
     for(const o of r){
-      const ids=o.items.map(i=>i.id);
-      if(ids.some(id=>usedItemIds.has(id)))continue;
-      o.style=cfg.s;out.push(o);ids.forEach(id=>usedItemIds.add(id));break;
+      const key=o.items.map(i=>i.id).sort().join("|");
+      if(seenOutfitKeys.has(key))continue;
+      seenOutfitKeys.add(key);
+      o.style=cfg.s;out.push(o);
+      if(++taken>=2)break;
     }
   });
   state.garments=snap.g;state.alloc=snap.a;state.style=snap.s;state.budget=snap.b;state.colours=snap.c;state.stockOnly=snap.so;
@@ -1654,3 +1667,4 @@ else initApp();
 </script>
 </body>
 </html>
+
