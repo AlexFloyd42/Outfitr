@@ -286,11 +286,11 @@ header.hero{
 .wardrobe-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
 .wcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px;display:flex;gap:13px;align-items:center;position:relative;transition:transform .25s,box-shadow .25s;animation:cardIn .4s cubic-bezier(.2,.85,.3,1.1) both}
 .wcard:hover{transform:translateY(-2px);box-shadow:0 16px 30px -20px rgba(0,0,0,.4)}
-.wc-swatch{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;flex:none;border:1px solid rgba(0,0,0,.08);overflow:hidden}
-.wc-swatch svg{width:29px;height:29px}
-.wc-swatch img{border-radius:12px}
-.wc-swatch.sm{width:38px;height:38px;overflow:hidden}.wc-swatch.sm svg{width:22px;height:22px}
-.wc-swatch.sm img{border-radius:9px}
+.wc-swatch{width:128px;height:128px;border-radius:14px;display:grid;place-items:center;flex:none;border:1px solid rgba(0,0,0,.08);overflow:hidden}
+.wc-swatch svg{width:48px;height:48px}
+.wc-swatch img{border-radius:14px}
+.wc-swatch.sm{width:64px;height:64px;overflow:hidden;border-radius:12px}.wc-swatch.sm svg{width:28px;height:28px}
+.wc-swatch.sm img{border-radius:12px}
 .wc-body{flex:1;min-width:0}
 .wc-body b{font-size:14px;font-weight:700;display:block;line-height:1.25}
 .wc-body small{font-family:var(--mono);font-size:10px;color:#84867e;text-transform:uppercase;letter-spacing:.03em}
@@ -368,8 +368,8 @@ header.hero{
 .bl-items{padding:6px 20px 14px}
 .bl-item{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;gap:2px 14px;padding:13px 0;border-bottom:1px solid #E8E4D7;align-items:center}
 .bl-item:last-child{border-bottom:none}
-.bl-item .swatch{grid-row:1/3;width:96px;height:96px;border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,.08)}
-.bl-item .swatch img{border-radius:12px}
+.bl-item .swatch{grid-row:1/3;width:128px;height:128px;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.08)}
+.bl-item .swatch img{border-radius:14px}
 .bl-item-info{grid-column:2;grid-row:1;align-self:end}
 .bl-item-info b{font-size:14px;font-weight:700;display:block;line-height:1.3}
 .bl-item-info small{font-family:var(--mono);font-size:10.5px;color:#84867e;text-transform:uppercase}
@@ -378,11 +378,9 @@ header.hero{
 .bl-item .bl-shop{grid-column:2/4;grid-row:2;align-self:start;margin-top:6px;justify-self:start}
 .item-refresh.sm{width:26px;height:26px}.item-refresh.sm svg{width:13px;height:13px}
 .item-refresh.sm:hover{background:var(--bad,#c2472f);border-color:var(--bad,#c2472f);color:#fff}
-.bl-score{flex:none;width:120px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 16px;text-align:center;box-shadow:0 18px 40px -28px rgba(0,0,0,.5)}
-.bl-score span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#84867e;margin-top:8px}
 .bl-empty{flex:1;background:#fff;border:1.5px dashed var(--line);border-radius:18px;padding:40px 24px;text-align:center}
 .bl-pool-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#84867e;margin-bottom:16px}
-@media(max-width:640px){.bl-top{flex-direction:column}.bl-score{width:100%;display:flex;align-items:center;justify-content:center;gap:14px}.bl-score span{margin-top:0}.bl-item .swatch{width:72px;height:72px}}
+@media(max-width:640px){.bl-top{flex-direction:column}.bl-item .swatch{width:96px;height:96px}}
 
 .undo-toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,150%);z-index:90;background:var(--ink);color:var(--chalk);border-radius:14px;padding:11px 11px 11px 20px;display:flex;align-items:center;gap:18px;box-shadow:0 22px 44px -18px rgba(0,0,0,.7);opacity:0;transition:transform .4s cubic-bezier(.2,.9,.3,1.2),opacity .3s;max-width:min(92vw,440px)}
 .undo-toast.show{transform:translate(-50%,0);opacity:1}
@@ -493,6 +491,8 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .btn-refresh:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
 .btn-refresh svg{transition:transform .5s cubic-bezier(.3,1.2,.4,1)}
 .btn-refresh:hover svg{transform:rotate(-180deg)}
+.btn-refresh.btn-sm{font-size:12px;padding:9px 16px;gap:6px}
+.btn-refresh.btn-sm svg{width:14px;height:14px}
 @media(max-width:480px){.oitem .swatch{width:96px;height:96px}}
 .results-note{font-family:var(--mono);font-size:11.5px;color:rgba(241,238,229,.55);margin-top:18px;line-height:1.6}
 .over-banner{grid-column:1/-1;background:rgba(232,98,44,.12);border:1px solid rgba(232,98,44,.45);border-left:4px solid var(--stitch);border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;margin-bottom:4px}
@@ -1651,7 +1651,7 @@ function renderWardrobe(items){
   grid.innerHTML=`<div class="wardrobe-grid">`+list.map(i=>{
     const k=itemKey(i);
     return `<div class="wcard">
-      ${prodThumb(i,"wc-swatch",52)}
+      ${prodThumb(i,"wc-swatch",128)}
       <div class="wc-body"><b>${i.name}</b><small>${i.retailer} · ${COLOURS[i.colour].label} · ${CATS[i.cat].label}</small><span class="wc-price">${gbp(i.price)}</span></div>
       <button class="heart-btn on" data-kind="item" data-key="${k}" onclick="removeSavedItemEl(this)" aria-label="Remove ${i.name}">${HEART}</button>
     </div>`;}).join("")+`</div>`;
@@ -1666,7 +1666,7 @@ function renderSavedOutfits(outfits){
       <div class="wo-head"><b>${styleLabel(o.style)}</b><span class="wo-meta">${o.score}/100 · ${gbp(o.total)}</span>
         <button class="heart-btn on" data-kind="outfit" data-key="${k}" onclick="removeSavedOutfitEl(this)" aria-label="Remove outfit">${HEART}</button></div>
       <div class="wo-items">${o.items.map(i=>`<div class="wo-row">
-        ${prodThumb(i,"wc-swatch sm",38)}
+        ${prodThumb(i,"wc-swatch",128)}
         <span class="wo-n"><b>${i.name}</b><br><small>${i.retailer} · ${COLOURS[i.colour].label}</small></span>
         <span class="wo-p">${gbp(i.price)}</span></div>`).join("")}</div>
       <div class="wo-foot"><span>${o.items.length} pieces</span><span>${styleLabel(o.style)}</span></div>
@@ -1686,7 +1686,24 @@ function selectedFullItems(){return [...lookSel].map(k=>saved.items[k]).filter(B
 function formalityFree(items){const f=items.map(i=>i.form);if(!f.length)return{s:0,notes:[]};const spread=Math.max(...f)-Math.min(...f);const notes=[];if(spread<=1.2)notes.push("formality levels are tightly matched");else if(spread>=2.6)notes.push("a deliberately eclectic mix of formalities");return{s:Math.max(6,30-spread*8),notes};}
 function lookScore(items){const parts=[colourScore(items),formalityFree(items),proportionScore(items)];const max=85;const s=parts.reduce((a,p)=>a+(p.s||0),0);const notes=parts.flatMap(p=>p.notes||[]);return{score:Math.min(99,Math.round(s/max*100)),notes};}
 function toggleLookItemEl(el){toggleLookItem(el.dataset.key);}
-function toggleLookItem(k){if(lookSel.has(k))lookSel.delete(k);else lookSel.add(k);renderProfile();}
+function toggleLookItem(k){
+  if(lookSel.has(k)){lookSel.delete(k);}
+  else{
+    // Replace-by-slot: if an item of the same body zone is already selected, swap it out
+    const incoming=saved.items[k];
+    if(incoming){
+      const incomingSlot=CATS[incoming.cat]?CATS[incoming.cat].slot:null;
+      if(incomingSlot){
+        [...lookSel].forEach(ek=>{
+          const existing=saved.items[ek];
+          if(existing&&CATS[existing.cat]&&CATS[existing.cat].slot===incomingSlot)lookSel.delete(ek);
+        });
+      }
+    }
+    lookSel.add(k);
+  }
+  renderProfile();
+}
 function clearLook(){lookSel.clear();renderProfile();}
 function autoStyle(){
   const items=Object.values(saved.items);
@@ -1697,6 +1714,28 @@ function autoStyle(){
   let best=null,bestScore=-1;
   combos.forEach(c=>{if(c.length<2)return;const {score}=lookScore(c);if(score>bestScore){bestScore=score;best=c;}});
   if(best){lookSel=new Set(best.map(itemKey));renderProfile();}
+}
+function refreshLookOutfit(){
+  // Like auto-style but picks a DIFFERENT combination (add jitter)
+  const items=Object.values(saved.items);
+  const slots=ZONES.filter(z=>items.some(i=>CATS[i.cat].slot===z));
+  const bySlot=slots.map(z=>items.filter(i=>CATS[i.cat].slot===z).map(fullItem).slice(0,8));
+  let combos=[[]];
+  bySlot.forEach(list=>{const next=[];combos.forEach(c=>list.forEach(it=>next.push([...c,it])));combos=next.length>3000?next.slice(0,3000):next;});
+  const scored=combos.filter(c=>c.length>=2).map(c=>{const {score}=lookScore(c);return {items:c,score:score+Math.random()*8};}).sort((a,b)=>b.score-a.score);
+  if(scored[0]){lookSel=new Set(scored[0].items.map(itemKey));renderProfile();}
+}
+function refreshLookItem(k){
+  // Cycle this item to the next one in the same category from the wardrobe
+  const item=saved.items[k];if(!item)return;
+  const slot=CATS[item.cat]?CATS[item.cat].slot:null;
+  if(!slot)return;
+  const sameSlot=Object.entries(saved.items).filter(([ek,ei])=>CATS[ei.cat]&&CATS[ei.cat].slot===slot).map(([ek])=>ek);
+  if(sameSlot.length<2)return;
+  const curIdx=sameSlot.indexOf(k);
+  const nextKey=sameSlot[(curIdx+1)%sameSlot.length];
+  lookSel.delete(k);lookSel.add(nextKey);
+  renderProfile();
 }
 function saveLook(){
   const sel=selectedFullItems();if(sel.length<2)return;
@@ -1715,29 +1754,28 @@ function renderBuild(items){
   const ls=sel.length>=2?lookScore(sel):null;
   const cap=n=>n[0].toUpperCase()+n.slice(1);
 
-  // Assembled-look preview — a proper built-outfit view (like the builder results), using real images
   const selSorted=[...sel].sort((a,b)=>(ZONE_ORDER[CATS[a.cat].slot]??9)-(ZONE_ORDER[CATS[b.cat].slot]??9));
+  const REFRESH_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>';
   const preview=sel.length?`<div class="bl-outfit">
     <div class="bl-outfit-head">
       <div><b>Your look</b><span>${sel.length} piece${sel.length!==1?"s":""} · ${gbp(total)}</span></div>
       <div class="bl-actions">
-        <button class="btn btn-camel btn-sm" onclick="autoStyle()">✦ Auto-style</button>
+        <button class="btn btn-refresh btn-sm" onclick="refreshLookOutfit()">${REFRESH_SVG} REFRESH</button>
         <button class="btn btn-green btn-sm" ${sel.length<2?"disabled":""} onclick="saveLook()">Save this look</button>
         <button class="lt-clear" onclick="clearLook()">Clear</button>
       </div>
     </div>
     ${ls&&ls.notes.length?`<div class="bl-notes">${ls.notes.slice(0,3).map(cap).join(". ")}.</div>`:""}
     <div class="bl-items">${selSorted.map(i=>`<div class="bl-item">
-      ${prodThumb(i,"swatch",96)}
+      ${prodThumb(i,"swatch",128)}
       <div class="bl-item-info"><b>${i.name}</b><small>${i.retailer} · ${COLOURS[i.colour].label}</small></div>
       <div class="bl-item-right"><span class="p">${gbp(i.price)}</span>
+        <button class="item-refresh" onclick="refreshLookItem('${itemKey(i)}')" title="Swap for another option">${REFRESH_SVG}</button>
         <button class="item-refresh sm" onclick="removeLookItem('${itemKey(i)}')" title="Remove from look" aria-label="Remove ${i.name}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
       </div>
       ${i.link?`<a class="shop bl-shop" href="${i.link}" target="_blank" rel="noopener">SHOP ↗</a>`:""}
     </div>`).join("")}</div>
   </div>`:`<div class="bl-empty"><div class="lt-scoreholder" style="margin:0 auto 14px">✦</div><h3 style="margin-bottom:6px">Build a look from your wardrobe</h3><p style="color:#66695f;font-size:14px;max-width:44ch;margin:0 auto">Tap pieces below to assemble an outfit — or hit <b>Auto-style</b> and we'll put together the best-scoring combination from everything you've saved.</p><button class="btn btn-camel" style="margin-top:16px" onclick="autoStyle()">✦ Auto-style my wardrobe</button></div>`;
-
-  const score=sel.length?`<div class="bl-score">${dial(ls.score)}<span>Cohesion</span></div>`:"";
 
   const groups=ZONES.filter(z=>items.some(i=>CATS[i.cat].slot===z)).map(z=>{
     const list=items.filter(i=>CATS[i.cat].slot===z);
@@ -1745,11 +1783,11 @@ function renderBuild(items){
       list.map(i=>{const k=itemKey(i),on=lookSel.has(k);
         return `<button class="bcard ${on?"sel":""}" data-key="${k}" onclick="toggleLookItemEl(this)" aria-pressed="${on}">
           <span class="tick">${CHECK}</span>
-          ${prodThumb(i,"wc-swatch sm",38)}
+          ${prodThumb(i,"wc-swatch",64)}
           <span class="bc-body"><b>${i.name}</b><small>${i.retailer} · ${COLOURS[i.colour].label}</small><span class="bc-price">${gbp(i.price)}</span></span>
         </button>`;}).join("")+`</div></div>`;
   }).join("");
-  grid.innerHTML=`<div class="bl-top">${preview}${score}</div><div class="bl-pool-label">Your saved wardrobe — tap to add or remove</div><div class="build-pool">`+groups+`</div>`;
+  grid.innerHTML=`<div class="bl-top">${preview}</div><div class="bl-pool-label">Your saved wardrobe — tap to add or replace</div><div class="build-pool">`+groups+`</div>`;
 }
 function removeLookItem(k){lookSel.delete(k);renderProfile();}
 
